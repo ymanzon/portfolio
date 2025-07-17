@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Parrilla Mexicana - Auténtica Cocina Mexicana en Mérida</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Descubre La Parrilla Mexicana en Mérida, Yucatán. Auténtica cocina mexicana, ambiente familiar y los mejores cortes de carne. Reserva tu mesa ahora.">
+    <meta name="keywords" content="restaurante mexicano, parrilla, Mérida, Yucatán, cocina mexicana, carnes, reservas, comida tradicional">
+    <meta name="author" content="La Parrilla Mexicana">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="La Parrilla Mexicana - Auténtica Cocina Mexicana">
+    <meta property="og:description" content="Restaurante de cocina mexicana auténtica en Mérida, Yucatán. Especialistas en carnes y platillos tradicionales.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://laparrilla-mexicana.com">
+    <meta property="og:image" content="https://laparrilla-mexicana.com/images/og-image.jpg">
+    <meta property="og:locale" content="es_MX">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="La Parrilla Mexicana - Auténtica Cocina Mexicana">
+    <meta name="twitter:description" content="Restaurante de cocina mexicana auténtica en Mérida, Yucatán.">
+    <meta name="twitter:image" content="https://laparrilla-mexicana.com/images/twitter-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌮</text></svg>">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "La Parrilla Mexicana",
+      "description": "Auténtica cocina mexicana en Mérida, Yucatán",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Calle 60 #475",
+        "addressLocality": "Mérida",
+        "addressRegion": "Yucatán",
+        "postalCode": "97000",
+        "addressCountry": "MX"
+      },
+      "telephone": "+52-999-123-4567",
+      "servesCuisine": "Mexicana",
+      "priceRange": "$$",
+      "openingHours": "Mo-Su 12:00-22:00",
+      "url": "https://laparrilla-mexicana.com"
+    }
+    </script>
+    
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="nav-container">
+            <div class="logo">La Parrilla Mexicana</div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#historia">Historia</a></li>
+                    <li><a href="#galeria">Galería</a></li>
+                    <li><a href="#reservas">Reservas</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="#" onclick="downloadMenu()" class="btn btn-primary">Descargar Menú</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Bienvenidos a La Parrilla Mexicana</h1>
+            <p>Auténticos sabores mexicanos en el corazón de Mérida. Desde 1995 sirviendo tradición y sabor en cada platillo.</p>
+            <div class="cta-buttons">
+                <a href="#reservas" class="btn btn-primary">Reservar Mesa</a>
+                <a href="#" onclick="downloadMenu()" class="btn btn-secondary">Ver Menú</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Historia Section -->
+    <section id="historia" class="historia">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Nuestra Historia</h2>
+            <div class="historia-content">
+                <div class="historia-text animate-on-scroll">
+                    <p>Fundada en 1995 por la familia Rodríguez, La Parrilla Mexicana nació con la misión de preservar y compartir los auténticos sabores de la cocina mexicana tradicional. Durante más de 25 años, hemos mantenido viva la tradición familiar, transmitiendo de generación en generación las recetas secretas que hacen únicos nuestros platillos.</p>
+                    
+                    <p>Ubicados en el corazón de Mérida, nos hemos convertido en el lugar de encuentro favorito de las familias yucatecas y visitantes que buscan una experiencia gastronómica auténtica. Nuestro compromiso con la calidad y el servicio excepcional nos ha posicionado como uno de los restaurantes más queridos de la ciudad.</p>
+                    
+                    <p>Cada día seleccionamos los mejores ingredientes locales, preparamos nuestras salsas artesanalmente y asamos nuestras carnes en parrilla de carbón, manteniendo viva la tradición que nos caracteriza.</p>
+                </div>
+                <div class="historia-image animate-on-scroll">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%23D2691E' width='400' height='300'/><circle fill='%23FF6B35' cx='200' cy='150' r='80' opacity='0.7'/><text x='200' y='160' text-anchor='middle' fill='white' font-size='24' font-family='Arial'>Familia Rodríguez</text><text x='200' y='185' text-anchor='middle' fill='white' font-size='16' font-family='Arial'>Desde 1995</text></svg>" alt="Historia de La Parrilla Mexicana">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería Section -->
+    <section id="galeria" class="galeria">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Galería</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item animate-on-scroll">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'><rect fill='%23D2691E' width='400' height='250'/><circle fill='%23FF6B35' cx='200' cy='125' r='60' opacity='0.8'/><text x='200' y='135' text-anchor='middle' fill='white' font-size='18' font-family='Arial'>🥩 Arrachera</text></svg>" alt="Arrachera a la parrilla">
+                    <div class="gallery-overlay">
+                        <p>Arrachera Premium</p>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'><rect fill='%238B4513' width='400' height='250'/><circle fill='%23FF6B35' cx='200' cy='125' r='60' opacity='0.8'/><text x='200' y='135' text-anchor='middle' fill='white' font-size='18' font-family='Arial'>🌮 Tacos al Pastor</text></svg>" alt="Tacos al Pastor">
+                    <div class="gallery-overlay">
+                        <p>Tacos al Pastor</p>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'><rect fill='%23D2691E' width='400' height='250'/><circle fill='%23FF6B35' cx='200' cy='125' r='60' opacity='0.8'/><text x='200' y='135' text-anchor='middle' fill='white' font-size='18' font-family='Arial'>🥘 Fajitas</text></svg>" alt="Fajitas mixtas">
+                    <div class="gallery-overlay">
+                        <p>Fajitas Mixtas</p>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'><rect fill='%238B4513' width='400' height='250'/><circle fill='%23FF6B35' cx='200' cy='125' r='60' opacity='0.8'/><text x='200' y='135' text-anchor='middle' fill='white' font-size='16' font-family='Arial'>🏪 Ambiente Familiar</text></svg>" alt="Ambiente del restaurante">
+                    <div class="gallery-overlay">
+                        <p>Ambiente Familiar</p>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'><rect fill='%23D2691E' width='400' height='250'/><circle fill='%23FF6B35' cx='200' cy='125' r='60' opacity='0.8'/><text x='200' y='135' text-anchor='middle' fill='white' font-size='18' font-family='Arial'>🔥 Parrilla</text></svg>" alt="Parrilla de carbón">
+                    <div class="gallery-overlay">
+                        <p>Parrilla de Carbón</p>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'><rect fill='%238B4513' width='400' height='250'/><circle fill='%23FF6B35' cx='200' cy='125' r='60' opacity='0.8'/><text x='200' y='135' text-anchor='middle' fill='white' font-size='18' font-family='Arial'>🍹 Margaritas</text></svg>" alt="Margaritas">
+                    <div class="gallery-overlay">
+                        <p>Margaritas Especiales</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservas Section -->
+    <section id="reservas" class="reservas">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Reservaciones</h2>
+            <div class="reservas-content">
+                <form id="reservaForm" class="animate-on-scroll">
+                    <div class="form-group">
+                        <label for="nombre">Nombre completo *</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono *</label>
+                        <input type="tel" id="telefono" name="telefono" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="fecha">Fecha *</label>
+                        <input type="date" id="fecha" name="fecha" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hora">Hora *</label>
+                        <select id="hora" name="hora" required>
+                            <option value="">Selecciona una hora</option>
+                            <option value="12:00">12:00 PM</option>
+                            <option value="12:30">12:30 PM</option>
+                            <option value="13:00">1:00 PM</option>
+                            <option value="13:30">1:30 PM</option>
+                            <option value="14:00">2:00 PM</option>
+                            <option value="14:30">2:30 PM</option>
+                            <option value="15:00">3:00 PM</option>
+                            <option value="19:00">7:00 PM</option>
+                            <option value="19:30">7:30 PM</option>
+                            <option value="20:00">8:00 PM</option>
+                            <option value="20:30">8:30 PM</option>
+                            <option value="21:00">9:00 PM</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="personas">Número de personas *</label>
+                        <select id="personas" name="personas" required>
+                            <option value="">Selecciona</option>
+                            <option value="1">1 persona</option>
+                            <option value="2">2 personas</option>
+                            <option value="3">3 personas</option>
+                            <option value="4">4 personas</option>
+                            <option value="5">5 personas</option>
+                            <option value="6">6 personas</option>
+                            <option value="7">7 personas</option>
+                            <option value="8">8 personas</option>
+                            <option value="mas">Más de 8 personas</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="comentarios">Comentarios especiales</label>
+                        <textarea id="comentarios" name="comentarios" rows="4" placeholder="Ocasión especial, preferencias alimentarias, etc."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Confirmar Reserva</button>
+                </form>
+                
+                <div class="contact-info animate-on-scroll">
+                    <h3>Información de Contacto</h3>
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <div>
+                            <strong>Dirección:</strong><br>
+                            Calle 60 #475, Centro<br>
+                            Mérida, Yucatán 97000
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span>📞</span>
+                        <div>
+                            <strong>Teléfono:</strong><br>
+                            +52 999 123 4567
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span>⏰</span>
+                        <div>
+                            <strong>Horarios:</strong><br>
+                            Lunes a Domingo<br>
+                            12:00 PM - 10:00 PM
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <div>
+                            <strong>Email:</strong><br>
+                            info@parrilla-mexicana.com
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span>🌐</span>
+                        <div>
+                            <strong>Síguenos en:</strong><br>
+                            Facebook | Instagram | TikTok
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mapa Section -->
+    <section id="contacto" class="mapa">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Ubicación</h2>
+            <div class="mapa-container animate-on-scroll">
+                <div class="mapa-placeholder">
+                    <div>
+                        <h3>📍 Encuéntranos en el Centro de Mérida</h3>
+                        <p>Calle 60 #475, Centro Histórico<br>
+                        Mérida, Yucatán 97000</p>
+                        <p><strong>Fácil acceso en transporte público</strong></p>
+                        <p>Estacionamiento disponible</p>
+                    </div>
+                </div>
+                <div class="mapa-info">
+                    <h3>Cómo llegar</h3>
+                    <p>Estamos ubicados en el corazón del centro histórico de Mérida, a solo 2 cuadras del Zócalo principal. Fácil acceso en transporte público y con estacionamiento disponible para nuestros clientes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fixed Contact Buttons -->
+    <div class="fixed-contact">
+        <a href="https://wa.me/529991234567?text=Hola%2C%20me%20gustaría%20hacer%20una%20reserva%20en%20La%20Parrilla%20Mexicana" class="contact-btn whatsapp-btn" target="_blank" title="WhatsApp">
+            <span>📱</span>
+        </a>
+        <a href="tel:+529991234567" class="contact-btn phone-btn" title="Llamar">
+            <span>📞</span>
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 La Parrilla Mexicana. Todos los derechos reservados.</p>
+            <p>Diseñado con ❤️ para servir los mejores sabores de México</p>
+        </div>
+    </footer>
+
+   <script src="js/script.js"></script>
+   
+</body>
+</html>

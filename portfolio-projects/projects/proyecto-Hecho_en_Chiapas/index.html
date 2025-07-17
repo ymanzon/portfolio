@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hecho en Chiapas - Artesanías Auténticas | Tienda Online</title>
+    <meta name="description" content="Descubre las mejores artesanías chiapanecas hechas a mano. Textiles, cerámicas, joyería y más. Productos únicos con tradición milenaria.">
+    <meta name="keywords" content="artesanías chiapas, textiles mexicanos, cerámicas chiapanecas, joyería artesanal, productos hechos a mano">
+    <meta name="author" content="Hecho en Chiapas">
+    <meta property="og:title" content="Hecho en Chiapas - Artesanías Auténticas">
+    <meta property="og:description" content="Descubre las mejores artesanías chiapanecas hechas a mano">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hechoenchapas.com">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630/8B4513/FFFFFF?text=Hecho+en+Chiapas">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://hechoenchapas.com">
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Store",
+        "name": "Hecho en Chiapas",
+        "description": "Tienda de artesanías chiapanecas auténticas hechas a mano",
+        "url": "https://hechoenchapas.com",
+        "telephone": "+52-961-123-4567",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Chiapas",
+            "addressCountry": "MX"
+        },
+        "openingHours": "Mo-Sa 09:00-18:00",
+        "paymentAccepted": "Cash, Credit Card, PayPal, Bank Transfer"
+    }
+    </script>
+
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">Hecho en Chiapas</div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#pagos">Pagos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1 class="floating">Hecho en Chiapas</h1>
+            <p>Descubre la auténtica belleza de las artesanías chiapanecas. Cada pieza cuenta una historia, cada detalle refleja siglos de tradición.</p>
+            <a href="#productos" class="cta-button">Explorar Productos</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="productos">
+        <div class="container">
+            <h2 class="section-title">Productos Destacados</h2>
+            <div class="product-grid" id="productGrid">
+                <div class="product-card" data-category="textiles">
+                    <div class="product-image" onclick="openZoom('Textiles Tradicionales', 'Huipiles, rebozos y textiles bordados a mano con técnicas ancestrales.')">
+                        🧵 Imagen: Textiles Tradicionales
+                    </div>
+                    <div class="product-info">
+                        <h3>Textiles Tradicionales</h3>
+                        <p>Huipiles, rebozos y textiles bordados a mano con técnicas ancestrales.</p>
+                        <div class="product-price">$800 - $2,500</div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="ceramica">
+                    <div class="product-image" onclick="openZoom('Cerámica de Amatenango', 'Piezas únicas de cerámica elaboradas con barro local y técnicas tradicionales.')">
+                        🏺 Imagen: Cerámica de Amatenango
+                    </div>
+                    <div class="product-info">
+                        <h3>Cerámica de Amatenango</h3>
+                        <p>Piezas únicas de cerámica elaboradas con barro local y técnicas tradicionales.</p>
+                        <div class="product-price">$150 - $800</div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="joyeria">
+                    <div class="product-image" onclick="openZoom('Joyería Artesanal', 'Collares, pulseras y aretes con ámbar chiapaneco y materiales locales.')">
+                        💎 Imagen: Joyería Artesanal
+                    </div>
+                    <div class="product-info">
+                        <h3>Joyería Artesanal</h3>
+                        <p>Collares, pulseras y aretes con ámbar chiapaneco y materiales locales.</p>
+                        <div class="product-price">$200 - $1,200</div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="madera">
+                    <div class="product-image" onclick="openZoom('Tallado en Madera', 'Máscaras, figuras y objetos decorativos tallados en maderas preciosas.')">
+                        🪵 Imagen: Tallado en Madera
+                    </div>
+                    <div class="product-info">
+                        <h3>Tallado en Madera</h3>
+                        <p>Máscaras, figuras y objetos decorativos tallados en maderas preciosas.</p>
+                        <div class="product-price">$300 - $1,500</div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="instrumentos">
+                    <div class="product-image" onclick="openZoom('Instrumentos Musicales', 'Marimbas, flautas y tambores fabricados con materiales autóctonos.')">
+                        🎵 Imagen: Instrumentos Musicales
+                    </div>
+                    <div class="product-info">
+                        <h3>Instrumentos Musicales</h3>
+                        <p>Marimbas, flautas y tambores fabricados con materiales autóctonos.</p>
+                        <div class="product-price">$500 - $3,000</div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="decoracion">
+                    <div class="product-image" onclick="openZoom('Decoración para Hogar', 'Tapetes, cojines y objetos decorativos con diseños tradicionales.')">
+                        🏠 Imagen: Decoración para Hogar
+                    </div>
+                    <div class="product-info">
+                        <h3>Decoración para Hogar</h3>
+                        <p>Tapetes, cojines y objetos decorativos con diseños tradicionales.</p>
+                        <div class="product-price">$100 - $900</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="galeria">
+        <div class="container">
+            <h2 class="section-title">Galería de Artesanías</h2>
+            <div class="gallery-grid" id="galleryGrid">
+                <div class="gallery-item" onclick="openZoom('Proceso de Tejido', 'Mujeres artesanas trabajando en telares tradicionales.')">
+                    🧶 Proceso de Tejido
+                </div>
+                <div class="gallery-item" onclick="openZoom('Taller de Cerámica', 'Artesanos modelando piezas de cerámica en Amatenango.')">
+                    🏺 Taller de Cerámica
+                </div>
+                <div class="gallery-item" onclick="openZoom('Tallado en Madera', 'Maestros talladores creando máscaras tradicionales.')">
+                    🪵 Tallado en Madera
+                </div>
+                <div class="gallery-item" onclick="openZoom('Bordado Tradicional', 'Detalle de bordados con motivos florales y geométricos.')">
+                    🌸 Bordado Tradicional
+                </div>
+                <div class="gallery-item" onclick="openZoom('Mercado Local', 'Colorido mercado con artesanías locales.')">
+                    🏪 Mercado Local
+                </div>
+                <div class="gallery-item" onclick="openZoom('Ámbar Chiapaneco', 'Extracción y tallado de ámbar en la región.')">
+                    💎 Ámbar Chiapaneco
+                </div>
+                <div class="gallery-item" onclick="openZoom('Instrumentos Musicales', 'Fabricación de marimbas y instrumentos tradicionales.')">
+                    🎵 Instrumentos
+                </div>
+                <div class="gallery-item" onclick="openZoom('Textiles Coloridos', 'Variedad de textiles con patrones tradicionales.')">
+                    🌈 Textiles Coloridos
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <h2 class="section-title" style="color: #FFD700;">Contáctanos</h2>
+            <div class="contact-content">
+                <div class="contact-form">
+                    <h3>Envíanos un mensaje</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nombre:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Teléfono:</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje:</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <span id="submitText">Enviar Mensaje</span>
+                            <div id="submitLoading" class="loading" style="display: none;"></div>
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <div class="contact-item">
+                        <strong>📍 Ubicación:</strong><br>
+                        Chiapas, México
+                    </div>
+                    <div class="contact-item">
+                        <strong>📞 Teléfono:</strong><br>
+                        +52 961 123 4567
+                    </div>
+                    <div class="contact-item">
+                        <strong>✉️ Email:</strong><br>
+                        info@hechoenchipas.com
+                    </div>
+                    <div class="contact-item">
+                        <strong>🕒 Horarios:</strong><br>
+                        Lunes a Sábado: 9:00 AM - 6:00 PM
+                    </div>
+                    <a href="https://instagram.com/hechoenchipas" class="instagram-btn" target="_blank">
+                        📱 Síguenos en Instagram
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Methods Section -->
+    <section class="payment-methods" id="pagos">
+        <div class="container">
+            <h2 class="section-title">Métodos de Pago</h2>
+            <div class="payment-grid">
+                <div class="payment-card">
+                    <div class="payment-icon">💳</div>
+                    <h3>Tarjetas de Crédito/Débito</h3>
+                    <p>Visa, Mastercard, American Express</p>
+                </div>
+                <div class="payment-card">
+                    <div class="payment-icon">🏦</div>
+                    <h3>Transferencia Bancaria</h3>
+                    <p>Depósito directo a cuenta bancaria</p>
+                </div>
+                <div class="payment-card">
+                    <div class="payment-icon">💰</div>
+                    <h3>Efectivo</h3>
+                    <p>Pago en efectivo contra entrega</p>
+                </div>
+                <div class="payment-card">
+                    <div class="payment-icon">📱</div>
+                    <h3>PayPal</h3>
+                    <p>Pago seguro a través de PayPal</p>
+                </div>
+                <div class="payment-card">
+                    <div class="payment-icon">🛒</div>
+                    <h3>OXXO</h3>
+                    <p>Pago en tiendas OXXO</p>
+                </div>
+                <div class="payment-card">
+                    <div class="payment-icon">📲</div>
+                    <h3>Mercado Pago</h3>
+                    <p>Transferencias y pagos digitales</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px; padding: 20px; background: rgba(139, 69, 19, 0.1); border-radius: 15px;">
+                <h3 style="color: #8B4513; margin-bottom: 15px;">Políticas de Pago</h3>
+                <p style="color: #666; line-height: 1.6;">
+                    • Todos los pagos son procesados de forma segura<br>
+                    • Envío gratuito en compras mayores a $1,000<br>
+                    • Garantía de devolución de 30 días<br>
+                    • Certificado de autenticidad incluido
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Hecho en Chiapas. Todos los derechos reservados.</p>
+            <p>Preservando la tradición artesanal chiapaneca</p>
+        </div>
+    </footer>
+
+    <!-- Admin Panel -->
+    <button class="admin-toggle" onclick="toggleAdmin()">⚙️</button>
+    <div class="admin-panel" id="adminPanel">
+        <h2 style="color: #FFD700; margin-bottom: 20px;">Panel de Administración</h2>
+        
+        <div class="admin-section">
+            <h3>Cambiar Imagen de Producto</h3>
+            <select id="productSelect">
+                <option value="0">Textiles Tradicionales</option>
+                <option value="1">Cerámica de Amatenango</option>
+                <option value="2">Joyería Artesanal</option>
+                <option value="3">Tallado en Madera</option>
+                <option value="4">Instrumentos Musicales</option>
+                <option value="5">Decoración para Hogar</option>
+            </select>
+            <input type="text" id="newProductImage" placeholder="Nueva descripción de imagen">
+            <button onclick="updateProductImage()">Actualizar Imagen</button>
+        </div>
+        
+        <div class="admin-section">
+            <h3>Cambiar Precio de Producto</h3>
+            <input type="text" id="newPrice" placeholder="Nuevo precio (ej: $800 - $2,500)">
+            <button onclick="updatePrice()">Actualizar Precio</button>
+        </div>
+        
+        <div class="admin-section">
+            <h3>Agregar Imagen a Galería</h3>
+            <input type="text" id="galleryTitle" placeholder="Título de la imagen">
+            <input type="text" id="galleryDesc" placeholder="Descripción">
+            <button onclick="addGalleryItem()">Agregar a Galería</button>
+        </div>
+        
+        <div class="admin-section">
+            <h3>Cambiar Información de Contacto</h3>
+            <input type="text" id="newPhone" placeholder="Nuevo teléfono">
+            <input type="email" id="newEmail" placeholder="Nuevo email">
+            <input type="text" id="newAddress" placeholder="Nueva dirección">
+            <button onclick="updateContactInfo()">Actualizar Contacto</button>
+        </div>
+        
+        <div class="admin-section">
+            <h3>Cambiar Texto del Hero</h3>
+            <input type="text" id="heroTitle" placeholder="Nuevo título">
+            <textarea id="heroDesc" placeholder="Nueva descripción"></textarea>
+            <button onclick="updateHeroText()">Actualizar Hero</button>
+        </div>
+    </div>
+
+    <!-- Zoom Modal -->
+    <div class="zoom-modal" id="zoomModal">
+        <div class="zoom-content">
+            <span class="zoom-close" onclick="closeZoom()">&times;</span>
+            <h2 id="zoomTitle" style="color: #8B4513; margin-bottom: 15px;"></h2>
+            <p id="zoomDescription" style="color: #666; line-height: 1.6;"></p>
+            <div style="margin-top: 20px; padding: 15px; background: #F5F5DC; border-radius: 10px;">
+                <em>Imagen representativa: En un sitio real, aquí se mostraría la imagen ampliada del producto o proceso artesanal.</em>
+            </div>
+        </div>
+    </div>
+    <script src="js/scripts.js"></script>
+</body>
+</html>
