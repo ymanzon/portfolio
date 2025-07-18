@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Properties - Bienes Raíces de Lujo | Casas, Terrenos y Departamentos</title>
+    <meta name="description" content="Descubre las mejores propiedades en venta y renta. Casas, terrenos, departamentos y rentas vacacionales. Encuentra tu hogar ideal con Premium Properties.">
+    <meta name="keywords" content="bienes raíces, casas en venta, terrenos, departamentos, rentas vacacionales, propiedades premium">
+    <meta name="author" content="Premium Properties">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://premiumproperties.com">
+    <meta property="og:title" content="Premium Properties - Bienes Raíces de Lujo">
+    <meta property="og:description" content="Descubre las mejores propiedades en venta y renta. Casas, terrenos, departamentos y rentas vacacionales.">
+    <meta property="og:image" content="https://premiumproperties.com/images/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://premiumproperties.com">
+    <meta property="twitter:title" content="Premium Properties - Bienes Raíces de Lujo">
+    <meta property="twitter:description" content="Descubre las mejores propiedades en venta y renta. Casas, terrenos, departamentos y rentas vacacionales.">
+    <meta property="twitter:image" content="https://premiumproperties.com/images/twitter-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="canonical" href="https://premiumproperties.com">
+
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "RealEstateAgent",
+        "name": "Premium Properties",
+        "description": "Empresa líder en bienes raíces, especializada en venta y renta de propiedades premium",
+        "url": "https://premiumproperties.com",
+        "telephone": "+52-999-123-4567",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Calle 60 #123",
+            "addressLocality": "Mérida",
+            "addressRegion": "Yucatán",
+            "postalCode": "97000",
+            "addressCountry": "MX"
+        }
+    }
+    </script>
+    
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <a href="#" class="logo">Premium Properties</a>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#propiedades">Propiedades</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Encuentra tu Hogar Ideal</h1>
+            <p>Descubre las mejores propiedades en venta y renta con Premium Properties</p>
+            <a href="#propiedades" class="cta-button">Explorar Propiedades</a>
+        </div>
+    </section>
+
+    <!-- Properties Section -->
+    <section id="propiedades" class="properties">
+        <div class="container">
+            <h2 class="section-title scroll-reveal">Nuestras Propiedades</h2>
+            
+            <div class="property-filters">
+                <button class="filter-btn active" data-filter="all">Todas</button>
+                <button class="filter-btn" data-filter="casa">Casas</button>
+                <button class="filter-btn" data-filter="departamento">Departamentos</button>
+                <button class="filter-btn" data-filter="terreno">Terrenos</button>
+                <button class="filter-btn" data-filter="vacacional">Rentas Vacacionales</button>
+            </div>
+            
+            <div class="property-grid">
+                <div class="property-card" data-category="casa">
+                    <div class="property-image">
+                        <div class="property-type">Casa</div>
+                        <div class="property-price">$2,500,000</div>
+                    </div>
+                    <div class="property-content">
+                        <h3 class="property-title">Casa Moderna en Fraccionamiento</h3>
+                        <div class="property-location">Mérida, Yucatán</div>
+                        <p class="property-description">Hermosa casa moderna de 3 recámaras con alberca y jardín privado. Excelente ubicación cerca de centros comerciales.</p>
+                        <div class="property-features">
+                            <div class="feature">🛏️ 3 Recámaras</div>
+                            <div class="feature">🚿 2 Baños</div>
+                            <div class="feature">🚗 2 Cocheras</div>
+                        </div>
+                        <button class="view-property" onclick="openModal('Casa Moderna', 'Mérida, Yucatán', '$2,500,000', 'Hermosa casa moderna con todas las comodidades')">Ver Detalles</button>
+                    </div>
+                </div>
+                
+                <div class="property-card" data-category="departamento">
+                    <div class="property-image">
+                        <div class="property-type">Departamento</div>
+                        <div class="property-price">$1,800,000</div>
+                    </div>
+                    <div class="property-content">
+                        <h3 class="property-title">Departamento en Torre Ejecutiva</h3>
+                        <div class="property-location">Altabrisa, Mérida</div>
+                        <p class="property-description">Departamento ejecutivo con vista panorámica, gimnasio y amenidades de lujo en la mejor zona de Mérida.</p>
+                        <div class="property-features">
+                            <div class="feature">🛏️ 2 Recámaras</div>
+                            <div class="feature">🚿 2 Baños</div>
+                            <div class="feature">🏢 Piso 12</div>
+                        </div>
+                        <button class="view-property" onclick="openModal('Departamento Torre Ejecutiva', 'Altabrisa, Mérida', '$1,800,000', 'Departamento de lujo con amenidades')">Ver Detalles</button>
+                    </div>
+                </div>
+                
+                <div class="property-card" data-category="terreno">
+                    <div class="property-image">
+                        <div class="property-type">Terreno</div>
+                        <div class="property-price">$850,000</div>
+                    </div>
+                    <div class="property-content">
+                        <h3 class="property-title">Terreno Residencial Premium</h3>
+                        <div class="property-location">Temozón Norte, Mérida</div>
+                        <p class="property-description">Terreno plano de 300m² en exclusivo fraccionamiento. Ideal para construir la casa de tus sueños.</p>
+                        <div class="property-features">
+                            <div class="feature">📏 300 m²</div>
+                            <div class="feature">🌳 Arbolado</div>
+                            <div class="feature">🔌 Servicios</div>
+                        </div>
+                        <button class="view-property" onclick="openModal('Terreno Residencial', 'Temozón Norte', '$850,000', 'Terreno plano con todos los servicios')">Ver Detalles</button>
+                    </div>
+                </div>
+                
+                <div class="property-card" data-category="vacacional">
+                    <div class="property-image">
+                        <div class="property-type">Renta Vacacional</div>
+                        <div class="property-price">$3,500/noche</div>
+                    </div>
+                    <div class="property-content">
+                        <h3 class="property-title">Villa Frente al Mar</h3>
+                        <div class="property-location">Progreso, Yucatán</div>
+                        <p class="property-description">Espectacular villa frente al mar con alberca infinita y acceso directo a playa privada. Perfecta para vacaciones.</p>
+                        <div class="property-features">
+                            <div class="feature">🛏️ 4 Recámaras</div>
+                            <div class="feature">🏊 Alberca</div>
+                            <div class="feature">🏖️ Playa Privada</div>
+                        </div>
+                        <button class="view-property" onclick="openModal('Villa Frente al Mar', 'Progreso, Yucatán', '$3,500/noche', 'Villa de lujo con acceso a playa')">Ver Detalles</button>
+                    </div>
+                </div>
+                
+                <div class="property-card" data-category="casa">
+                    <div class="property-image">
+                        <div class="property-type">Casa</div>
+                        <div class="property-price">$3,200,000</div>
+                    </div>
+                    <div class="property-content">
+                        <h3 class="property-title">Casa Colonial Restaurada</h3>
+                        <div class="property-location">Centro Histórico, Mérida</div>
+                        <p class="property-description">Hermosa casa colonial completamente restaurada con arquitectura tradicional yucateca y comodidades modernas.</p>
+                        <div class="property-features">
+                            <div class="feature">🛏️ 4 Recámaras</div>
+                            <div class="feature">🏛️ Colonial</div>
+                            <div class="feature">🌿 Jardín</div>
+                        </div>
+                        <button class="view-property" onclick="openModal('Casa Colonial', 'Centro Histórico', '$3,200,000', 'Casa colonial con encanto histórico')">Ver Detalles</button>
+                    </div>
+                </div>
+                
+                <div class="property-card" data-category="departamento">
+                    <div class="property-image">
+                        <div class="property-type">Departamento</div>
+                        <div class="property-price">$1,200,000</div>
+                    </div>
+                    <div class="property-content">
+                        <h3 class="property-title">Loft Contemporáneo</h3>
+                        <div class="property-location">García Ginerés, Mérida</div>
+                        <p class="property-description">Loft moderno con diseño contemporáneo, techos altos y espacios abiertos. Perfecto para jóvenes profesionales.</p>
+                        <div class="property-features">
+                            <div class="feature">🛏️ 1 Recámara</div>
+                            <div class="feature">🎨 Loft</div>
+                            <div class="feature">🌆 Vista Ciudad</div>
+                        </div>
+                        <button class="view-property" onclick="openModal('Loft Contemporáneo', 'García Ginerés', '$1,200,000', 'Loft moderno con diseño único')">Ver Detalles</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="services">
+        <div class="container">
+            <h2 class="section-title scroll-reveal">Nuestros Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card scroll-reveal">
+                    <div class="service-icon">🏠</div>
+                    <h3 class="service-title">Venta de Propiedades</h3>
+                    <p>Encuentra la propiedad perfecta para ti con nuestro amplio catálogo de casas, departamentos y terrenos.</p>
+                </div>
+                <div class="service-card scroll-reveal">
+                    <div class="service-icon">🏖️</div>
+                    <h3 class="service-title">Rentas Vacacionales</h3>
+                    <p>Disfruta de unas vacaciones perfectas en nuestras villas y casas frente al mar en los mejores destinos.</p>
+                </div>
+                <div class="service-card scroll-reveal">
+                    <div class="service-icon">💼</div>
+                    <h3 class="service-title">Asesoría Inmobiliaria</h3>
+                    <p>Recibe asesoría profesional para tomar la mejor decisión de inversión en bienes raíces.</p>
+                </div>
+                <div class="service-card scroll-reveal">
+                    <div class="service-icon">📍</div>
+                    <h3 class="service-title">Evaluación de Propiedades</h3>
+                    <p>Conoce el valor real de tu propiedad con nuestras evaluaciones profesionales y detalladas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="services" style="background: var(--light-bg);">
+        <div class="container">
+            <h2 class="section-title scroll-reveal">Contacto</h2>
+            <div class="services-grid">
+                <div class="service-card scroll-reveal">
+                    <div class="service-icon">📞</div>
+                    <h3 class="service-title">Teléfono</h3>
+                    <p>+52 (999) 123-4567</p>
+                </div>
+                <div class="service-card scroll-reveal">
+                    <div class="service-icon">✉️</div>
+                    <h3 class="service-title">Email</h3>
+                    <p>info@premiumproperties.com</p>
+                </div>
+                <div class="service-card scroll-reveal">
+                    <div class="service-icon">📍</div>
+                    <h3 class="service-title">Oficina</h3>
+                    <p>Calle 60 #123, Centro<br>Mérida, Yucatán</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Property Modal -->
+    <div id="propertyModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <div id="modalLocation" class="property-location"></div>
+            <div id="modalPrice" style="font-size: 1.5rem; font-weight: bold; color: var(--accent-color); margin: 1rem 0;"></div>
+            <div id="modalMap" class="modal-map">
+                📍 Mapa Interactivo - Ubicación de la Propiedad
+            </div>
+            <div id="modalDescription" style="margin: 1rem 0; line-height: 1.6;"></div>
+            <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                <button class="cta-button" style="flex: 1;">Agendar Visita</button>
+                <button class="cta-button" style="flex: 1; background: var(--secondary-color);">Más Información</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#propiedades">Propiedades</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#contacto">Contacto</a>
+                <a href="#">Términos y Condiciones</a>
+                <a href="#">Política de Privacidad</a>
+            </div>
+            <p>&copy; 2024 Premium Properties. Todos los derechos reservados.</p>
+            <p>Desarrollado con tecnología de vanguardia para brindarte la mejor experiencia</p>
+        </div>
+    </footer>
+
+   <script src="js/script.js"></script>
+</body>
+</html>
