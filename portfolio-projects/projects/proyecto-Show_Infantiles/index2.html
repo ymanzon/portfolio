@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Kids Entertainment</title>
+    <style>
+        :root {
+            --primary: #FF6B6B;
+            --secondary: #4ECDC4;
+            --accent: #FFE66D;
+            --dark: #292F36;
+            --light: #F7FFF7;
+            --purple: #9B5DE5;
+            --pink: #F15BB5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Comic Neue', cursive, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            background: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 5px 10px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .lang-btn:hover, .lang-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--pink));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: var(--accent);
+            opacity: 0.7;
+            animation: fall 5s linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+
+        nav {
+            background-color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 1rem 0;
+        }
+
+        nav li {
+            margin: 0 1.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--accent);
+            transition: all 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        section {
+            padding: 4rem 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .home-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .home-text {
+            flex: 1;
+            min-width: 300px;
+            padding: 2rem;
+        }
+
+        .home-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .home-image img {
+            max-width: 100%;
+            height: auto;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            background: var(--pink);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .value-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: all 0.3s;
+            border-top: 5px solid var(--accent);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .calendar {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .month-selector {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .month-btn {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .month-btn:hover {
+            background: var(--primary);
+        }
+
+        .days-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+        }
+
+        .day-header {
+            text-align: center;
+            font-weight: bold;
+            padding: 0.5rem;
+            background: var(--light);
+            border-radius: 5px;
+        }
+
+        .day {
+            text-align: center;
+            padding: 1rem 0.5rem;
+            border-radius: 5px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .day:hover {
+            background: var(--accent);
+        }
+
+        .event {
+            background: var(--primary);
+            color: white;
+            border-radius: 5px;
+            padding: 0.2rem;
+            font-size: 0.8rem;
+            margin-top: 0.2rem;
+        }
+
+        .packages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .package-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            border-top: 5px solid var(--purple);
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .package-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .package-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s;
+        }
+
+        .package-card:hover .package-image img {
+            transform: scale(1.1);
+        }
+
+        .package-content {
+            padding: 1.5rem;
+        }
+
+        .package-title {
+            color: var(--purple);
+            margin-bottom: 0.5rem;
+        }
+
+        .package-price {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin: 1rem 0;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--secondary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.2);
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .social-link {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav li {
+                margin: 0.5rem 0;
+            }
+
+            .home-content, .about-content {
+                flex-direction: column;
+            }
+
+            .section {
+                padding: 2rem 1rem;
+            }
+        }
+
+        /* Animation classes */
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .slide-in-left {
+            animation: slideInLeft 1s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from { transform: translateX(-100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .slide-in-right {
+            animation: slideInRight 1s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .bounce {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-30px); }
+            60% { transform: translateY(-15px); }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+    </div>
+
+    <header id="home">
+        <div class="confetti" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="confetti" style="left: 20%; animation-delay: 0.5s;"></div>
+        <div class="confetti" style="left: 30%; animation-delay: 1s;"></div>
+        <div class="confetti" style="left: 40%; animation-delay: 1.5s;"></div>
+        <div class="confetti" style="left: 50%; animation-delay: 2s;"></div>
+        <div class="confetti" style="left: 60%; animation-delay: 2.5s;"></div>
+        <div class="confetti" style="left: 70%; animation-delay: 3s;"></div>
+        <div class="confetti" style="left: 80%; animation-delay: 3.5s;"></div>
+        <div class="confetti" style="left: 90%; animation-delay: 4s;"></div>
+
+        <h1 class="fade-in" data-en="Magic Kids Entertainment" data-es="Entretenimiento Mágico Infantil">Magic Kids Entertainment</h1>
+        <p class="fade-in" data-en="Bringing joy and magic to every child's event!" data-es="¡Llevando alegría y magia a cada evento infantil!">Bringing joy and magic to every child's event!</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home" data-en="Home" data-es="Inicio">Home</a></li>
+            <li><a href="#about" data-en="About Us" data-es="Nosotros">About Us</a></li>
+            <li><a href="#values" data-en="Our Values" data-es="Valores">Our Values</a></li>
+            <li><a href="#calendar" data-en="Calendar" data-es="Calendario">Calendar</a></li>
+            <li><a href="#packages" data-en="Show Packages" data-es="Paquetes">Show Packages</a></li>
+            <li><a href="#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home-section" class="home-section">
+        <div class="home-content">
+            <div class="home-text slide-in-left">
+                <h2 data-en="Unforgettable Children's Parties" data-es="Fiestas Infantiles Inolvidables">Unforgettable Children's Parties</h2>
+                <p data-en="We specialize in creating magical experiences for children's events with our talented performers, exciting shows, and unforgettable characters." data-es="Nos especializamos en crear experiencias mágicas para eventos infantiles con nuestros talentosos artistas, espectáculos emocionantes y personajes inolvidables.">We specialize in creating magical experiences for children's events with our talented performers, exciting shows, and unforgettable characters.</p>
+                <a href="#contact" class="btn" data-en="Book Now" data-es="Reservar Ahora">Book Now</a>
+            </div>
+            <div class="home-image slide-in-right">
+                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Children's party">
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <h2 class="section-title" data-en="About Us" data-es="Sobre Nosotros">About Us</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3 data-en="Our Story" data-es="Nuestra Historia">Our Story</h3>
+                <p data-en="Founded in 2010, Magic Kids Entertainment has been bringing smiles to children's faces for over a decade. What started as a small group of performers has grown into the premier children's entertainment company in the region." data-es="Fundada en 2010, Magic Kids Entertainment ha estado llevando sonrisas a los rostros de los niños durante más de una década. Lo que comenzó como un pequeño grupo de artistas se ha convertido en la principal compañía de entretenimiento infantil de la región.">Founded in 2010, Magic Kids Entertainment has been bringing smiles to children's faces for over a decade. What started as a small group of performers has grown into the premier children's entertainment company in the region.</p>
+                <p data-en="Our team consists of professional actors, dancers, magicians, and educators who are passionate about creating magical moments for children." data-es="Nuestro equipo está formado por actores profesionales, bailarines, magos y educadores apasionados por crear momentos mágicos para los niños.">Our team consists of professional actors, dancers, magicians, and educators who are passionate about creating magical moments for children.</p>
+                <a href="#contact" class="btn" data-en="Learn More" data-es="Saber Más">Learn More</a>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Our team">
+            </div>
+        </div>
+    </section>
+
+    <section id="values" class="values-section">
+        <h2 class="section-title" data-en="Our Values" data-es="Nuestros Valores">Our Values</h2>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon"><i class="fas fa-heart"></i></div>
+                <h3 data-en="Joy" data-es="Alegría">Joy</h3>
+                <p data-en="We believe every child deserves moments of pure happiness and wonder." data-es="Creemos que cada niño merece momentos de pura felicidad y asombro.">We believe every child deserves moments of pure happiness and wonder.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon"><i class="fas fa-star"></i></div>
+                <h3 data-en="Creativity" data-es="Creatividad">Creativity</h3>
+                <p data-en="Our shows are carefully crafted to spark imagination and inspire young minds." data-es="Nuestros espectáculos están cuidadosamente elaborados para despertar la imaginación e inspirar a las mentes jóvenes.">Our shows are carefully crafted to spark imagination and inspire young minds.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                <h3 data-en="Safety" data-es="Seguridad">Safety</h3>
+                <p data-en="All our performers are background-checked and trained in child safety protocols." data-es="Todos nuestros artistas están verificados y capacitados en protocolos de seguridad infantil.">All our performers are background-checked and trained in child safety protocols.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon"><i class="fas fa-users"></i></div>
+                <h3 data-en="Inclusivity" data-es="Inclusión">Inclusivity</h3>
+                <p data-en="We celebrate diversity and create shows that all children can enjoy and relate to." data-es="Celebramos la diversidad y creamos espectáculos que todos los niños pueden disfrutar.">We celebrate diversity and create shows that all children can enjoy and relate to.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="calendar" class="calendar-section">
+        <h2 class="section-title" data-en="Presentation Calendar" data-es="Calendario de Presentaciones">Presentation Calendar</h2>
+        <div class="calendar">
+            <div class="month-selector">
+                <button class="month-btn" id="prev-month"><i class="fas fa-chevron-left"></i></button>
+                <h3 id="current-month">July 2023</h3>
+                <button class="month-btn" id="next-month"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="days-grid">
+                <div class="day-header" data-en="Sun" data-es="Dom">Sun</div>
+                <div class="day-header" data-en="Mon" data-es="Lun">Mon</div>
+                <div class="day-header" data-en="Tue" data-es="Mar">Tue</div>
+                <div class="day-header" data-en="Wed" data-es="Mié">Wed</div>
+                <div class="day-header" data-en="Thu" data-es="Jue">Thu</div>
+                <div class="day-header" data-en="Fri" data-es="Vie">Fri</div>
+                <div class="day-header" data-en="Sat" data-es="Sáb">Sat</div>
+                <div class="day empty"></div>
+                <div class="day empty"></div>
+                <div class="day empty"></div>
+                <div class="day empty"></div>
+                <div class="day">1</div>
+                <div class="day">2</div>
+                <div class="day">3</div>
+                <div class="day">4</div>
+                <div class="day">5</div>
+                <div class="day">6</div>
+                <div class="day">7</div>
+                <div class="day">8</div>
+                <div class="day">9</div>
+                <div class="day">10</div>
+                <div class="day">11</div>
+                <div class="day">12</div>
+                <div class="day">13</div>
+                <div class="day">14</div>
+                <div class="day">15</div>
+                <div class="day">16</div>
+                <div class="day">17</div>
+                <div class="day">18</div>
+                <div class="day">19</div>
+                <div class="day">20</div>
+                <div class="day">21</div>
+                <div class="day">22</div>
+                <div class="day">23</div>
+                <div class="day">24</div>
+                <div class="day">25</div>
+                <div class="day">26</div>
+                <div class="day">27</div>
+                <div class="day">28</div>
+                <div class="day">29</div>
+                <div class="day">30</div>
+                <div class="day">31</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="packages" class="packages-section">
+        <h2 class="section-title" data-en="Show Packages" data-es="Paquetes de Espectáculos">Show Packages</h2>
+        <div class="packages">
+            <div class="package-card">
+                <div class="package-image">
+                    <img src="https://images.unsplash.com/photo-1608889825103-eb5a6f5ad50d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Princess Package">
+                </div>
+                <div class="package-content">
+                    <h3 class="package-title" data-en="Princess Party" data-es="Fiesta de Princesas">Princess Party</h3>
+                    <p data-en="A magical experience with your favorite princess characters, including singing, dancing, and royal activities." data-es="Una experiencia mágica con tus personajes de princesas favoritos, incluyendo canto, baile y actividades reales.">A magical experience with your favorite princess characters, including singing, dancing, and royal activities.</p>
+                    <p class="package-price">$299</p>
+                    <a href="#contact" class="btn" data-en="Book Now" data-es="Reservar Ahora">Book Now</a>
+                </div>
+            </div>
+            <div class="package-card">
+                <div class="package-image">
+                    <img src="https://images.unsplash.com/photo-1567599753825-044329256b01?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Superhero Package">
+                </div>
+                <div class="package-content">
+                    <h3 class="package-title" data-en="Superhero Adventure" data-es="Aventura de Superhéroes">Superhero Adventure</h3>
+                    <p data-en="Join our superhero team for an action-packed show with training exercises and heroic missions." data-es="Únete a nuestro equipo de superhéroes para un espectáculo lleno de acción con ejercicios de entrenamiento y misiones heroicas.">Join our superhero team for an action-packed show with training exercises and heroic missions.</p>
+                    <p class="package-price">$349</p>
+                    <a href="#contact" class="btn" data-en="Book Now" data-es="Reservar Ahora">Book Now</a>
+                </div>
+            </div>
+            <div class="package-card">
+                <div class="package-image">
+                    <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Magic Show">
+                </div>
+                <div class="package-content">
+                    <h3 class="package-title" data-en="Magical Circus" data-es="Circo Mágico">Magical Circus</h3>
+                    <p data-en="Our spectacular magic show includes illusions, comedy, and audience participation that will amaze all ages." data-es="Nuestro espectacular show de magia incluye ilusiones, comedia y participación del público que sorprenderá a todas las edades.">Our spectacular magic show includes illusions, comedy, and audience participation that will amaze all ages.</p>
+                    <p class="package-price">$399</p>
+                    <a href="#contact" class="btn" data-en="Book Now" data-es="Reservar Ahora">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2 class="section-title" data-en="Contact Us" data-es="Contáctenos">Contact Us</h2>
+        <div class="contact-form">
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name" data-en="Your Name" data-es="Tu Nombre">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email" data-en="Email Address" data-es="Correo Electrónico">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone" data-en="Phone Number" data-es="Número de Teléfono">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="event-type" data-en="Event Type" data-es="Tipo de Evento">Event Type</label>
+                    <select id="event-type" name="event-type">
+                        <option value="" data-en="Select an option" data-es="Selecciona una opción">Select an option</option>
+                        <option value="birthday" data-en="Birthday Party" data-es="Fiesta de Cumpleaños">Birthday Party</option>
+                        <option value="school" data-en="School Event" data-es="Evento Escolar">School Event</option>
+                        <option value="community" data-en="Community Event" data-es="Evento Comunitario">Community Event</option>
+                        <option value="other" data-en="Other" data-es="Otro">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="package" data-en="Package Interest" data-es="Paquete de Interés">Package Interest</label>
+                    <select id="package" name="package">
+                        <option value="" data-en="Select an option" data-es="Selecciona una opción">Select an option</option>
+                        <option value="princess" data-en="Princess Party" data-es="Fiesta de Princesas">Princess Party</option>
+                        <option value="superhero" data-en="Superhero Adventure" data-es="Aventura de Superhéroes">Superhero Adventure</option>
+                        <option value="magic" data-en="Magical Circus" data-es="Circo Mágico">Magical Circus</option>
+                        <option value="custom" data-en="Custom Package" data-es="Paquete Personalizado">Custom Package</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message" data-en="Your Message" data-es="Tu Mensaje">Your Message</label>
+                    <textarea id="message" name="message" rows="5"></textarea>
+                </div>
+                <button type="submit" class="btn" data-en="Send Message" data-es="Enviar Mensaje">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p data-en="© 2023 Magic Kids Entertainment. All rights reserved." data-es="© 2023 Magic Kids Entertainment. Todos los derechos reservados.">© 2023 Magic Kids Entertainment. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Language switching functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const langButtons = document.querySelectorAll('.lang-btn');
+            const currentLang = localStorage.getItem('preferredLang') || 'en';
+            
+            // Set initial language
+            setLanguage(currentLang);
+            
+            // Highlight current language button
+            langButtons.forEach(btn => {
+                if (btn.dataset.lang === currentLang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            
+            // Add click event to language buttons
+            langButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const lang = this.dataset.lang;
+                    setLanguage(lang);
+                    localStorage.setItem('preferredLang', lang);
+                    
+                    // Update button active states
+                    langButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Calendar navigation
+            const prevMonthBtn = document.getElementById('prev-month');
+            const nextMonthBtn = document.getElementById('next-month');
+            const currentMonthEl = document.getElementById('current-month');
+            
+            let currentDate = new Date();
+            
+            function updateCalendarDisplay() {
+                const options = { month: 'long', year: 'numeric' };
+                currentMonthEl.textContent = currentDate.toLocaleDateString(currentLang === 'es' ? 'es-ES' : 'en-US', options);
+            }
+            
+            prevMonthBtn.addEventListener('click', function() {
+                currentDate.setMonth(currentDate.getMonth() - 1);
+                updateCalendarDisplay();
+            });
+            
+            nextMonthBtn.addEventListener('click', function() {
+                currentDate.setMonth(currentDate.getMonth() + 1);
+                updateCalendarDisplay();
+            });
+            
+            // Form submission
+            const contactForm = document.getElementById('contactForm');
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert(currentLang === 'es' ? 
+                    '¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.' : 
+                    'Thank you for your message! We will get back to you soon.');
+                contactForm.reset();
+            });
+            
+            // Add some random events to the calendar
+            const days = document.querySelectorAll('.day:not(.empty)');
+            days.forEach(day => {
+                if (Math.random() > 0.8) {
+                    const event = document.createElement('div');
+                    event.className = 'event';
+                    event.textContent = currentLang === 'es' ? 'Disponible' : 'Available';
+                    day.appendChild(event);
+                }
+            });
+            
+            // Smooth scrolling for navigation
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Animation on scroll
+            const animateOnScroll = function() {
+                const elements = document.querySelectorAll('.slide-in-left, .slide-in-right, .fade-in');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementPosition < windowHeight - 100) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateX(0)';
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Run once on load
+        });
+        
+        function setLanguage(lang) {
+            // Update all elements with data-en and data-es attributes
+            document.querySelectorAll('[data-en], [data-es]').forEach(element => {
+                if (element.dataset[lang]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = element.dataset[lang];
+                    } else if (element.tagName === 'OPTION') {
+                        element.textContent = element.dataset[lang];
+                    } else {
+                        element.textContent = element.dataset[lang];
+                    }
+                }
+            });
+            
+            // Update calendar month display
+            const currentMonthEl = document.getElementById('current-month');
+            if (currentMonthEl) {
+                const currentDate = new Date();
+                const options = { month: 'long', year: 'numeric' };
+                currentMonthEl.textContent = currentDate.toLocaleDateString(lang === 'es' ? 'es-ES' : 'en-US', options);
+            }
+        }
+    </script>
+</body>
+</html>

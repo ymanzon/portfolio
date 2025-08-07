@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Consultoria Empresarial - Servicios especializados de consultoría para el crecimiento y optimización de tu empresa. Expertos en estrategia empresarial, procesos y desarrollo organizacional.">
+    <meta name="keywords" content="consultoria empresarial, estrategia de negocio, optimización procesos, desarrollo organizacional, consultoría México">
+    <meta name="author" content="Consultoria Empresarial">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Consultoria Empresarial - Expertos en Estrategia de Negocio">
+    <meta property="og:description" content="Transformamos tu empresa con estrategias personalizadas y soluciones innovadoras. Consultoría profesional para el crecimiento empresarial.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.tudominio.com">
+    <meta property="og:image" content="https://www.tudominio.com/images/og-image.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Consultoria Empresarial">
+    <meta name="twitter:description" content="Expertos en estrategia empresarial y optimización de procesos">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="canonical" href="https://www.tudominio.com">
+    
+    <title>Consultoria Empresarial | Expertos en Estrategia de Negocio y Crecimiento</title>
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Consultoria Empresarial",
+        "description": "Servicios especializados de consultoría empresarial",
+        "url": "https://www.tudominio.com",
+        "telephone": "+52-999-123-4567",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Calle 60 #123",
+            "addressLocality": "Mérida",
+            "addressRegion": "Yucatán",
+            "postalCode": "97000",
+            "addressCountry": "MX"
+        },
+        "areaServed": "México",
+        "serviceType": "Consultoría Empresarial"
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #f8fafc;
+            --accent-color: #06b6d4;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --shadow: 0 10px 25px rgba(0,0,0,0.1);
+            --shadow-hover: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-dark);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        #inicio {
+            background: var(--gradient);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #inicio::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.1)" points="0,1000 1000,0 1000,1000"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: slideInLeft 1s ease 0.5s forwards;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: slideInLeft 1s ease 0.7s forwards;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            opacity: 0;
+            animation: slideInLeft 1s ease 0.9s forwards;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary-color);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+
+        .hero-image {
+            opacity: 0;
+            animation: slideInRight 1s ease 0.5s forwards;
+        }
+
+        .floating-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 5%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Quienes Somos */
+        #quienes-somos {
+            background: var(--secondary-color);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+        }
+
+        /* Servicios */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        /* Paquetes */
+        #paquetes {
+            background: var(--secondary-color);
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .package-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .package-card.featured {
+            transform: scale(1.05);
+            border: 3px solid var(--primary-color);
+        }
+
+        .package-header {
+            padding: 2rem;
+            text-align: center;
+            background: var(--gradient);
+            color: var(--white);
+        }
+
+        .package-price {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .package-body {
+            padding: 2rem;
+        }
+
+        .package-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .package-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .package-features li:before {
+            content: '✓';
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Recursos */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .resource-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .resource-image {
+            height: 200px;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+        }
+
+        .resource-content {
+            padding: 1.5rem;
+        }
+
+        /* Contacto */
+        #contacto {
+            background: var(--text-dark);
+            color: var(--white);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-form {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--white);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .contact-info h3 {
+            margin-bottom: 2rem;
+            color: var(--accent-color);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 5%;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            margin: 1rem 0;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Animations */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                box-shadow: var(--shadow);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            section {
+                padding: 3rem 5%;
+            }
+        }
+
+        /* Performance optimizations */
+        .service-card,
+        .package-card,
+        .resource-card {
+            will-change: transform;
+        }
+
+        /* Accessibility improvements */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Focus styles for accessibility */
+        a:focus,
+        button:focus,
+        input:focus,
+        textarea:focus {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav role="navigation" aria-label="Navegación principal">
+            <a href="#inicio" class="logo" aria-label="Inicio">Consultoria Pro</a>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#quienes-somos">Quienes Somos</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#paquetes">Paquetes</a></li>
+                <li><a href="#recursos">Recursos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="menu-toggle" onclick="toggleMenu()" aria-label="Menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Transformamos Tu Empresa Hacia el Éxito</h1>
+                <p>Somos expertos en consultoría empresarial con más de 10 años de experiencia ayudando a empresas a alcanzar su máximo potencial a través de estrategias personalizadas y soluciones innovadoras.</p>
+                <div class="cta-buttons">
+                    <a href="#contacto" class="btn-primary">Consulta Gratuita</a>
+                    <a href="#servicios" class="btn-secondary">Nuestros Servicios</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="floating-card">
+                    <h3 style="color: white; margin-bottom: 1rem;">¿Por qué elegirnos?</h3>
+                    <ul style="color: rgba(255,255,255,0.9); list-style: none;">
+                        <li>✓ Resultados comprobados</li>
+                        <li>✓ Equipo experto</li>
+                        <li>✓ Metodología única</li>
+                        <li>✓ Soporte continuo</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quienes Somos -->
+    <section id="quienes-somos">
+        <div class="container">
+            <div class="section-header">
+                <h2>Quienes Somos</h2>
+                <p>Conoce al equipo de profesionales que está detrás de tu éxito empresarial</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Expertos en Transformación Empresarial</h3>
+                    <p>Somos una consultora especializada en el desarrollo y optimización de procesos empresariales. Nuestro equipo multidisciplinario cuenta con más de 10 años de experiencia trabajando con empresas de todos los tamaños.</p>
+                    <p>Nuestra misión es ayudar a las empresas a identificar oportunidades de crecimiento, optimizar sus procesos y desarrollar estrategias efectivas que generen resultados medibles y sostenibles.</p>
+                    <p>Creemos firmemente que cada empresa es única, por eso desarrollamos soluciones personalizadas que se adaptan perfectamente a las necesidades específicas de cada cliente.</p>
+                </div>
+                <div class="about-image">
+                    <div style="background: var(--gradient); height: 400px; border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
+                        🚀
+                    </div>
+                </div>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">150+</span>
+                    <p>Empresas Transformadas</p>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">10+</span>
+                    <p>Años de Experiencia</p>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">95%</span>
+                    <p>Satisfacción del Cliente</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nuestros Servicios</h2>
+                <p>Ofrecemos una amplia gama de servicios especializados para impulsar tu empresa</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📈</div>
+                    <h3>Estrategia Empresarial</h3>
+                    <p>Desarrollamos planes estratégicos personalizados que alinean todos los recursos de tu empresa hacia objetivos claros y alcanzables, garantizando un crecimiento sostenible.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚙️</div>
+                    <h3>Optimización de Procesos</h3>
+                    <p>Analizamos y mejoramos tus procesos operativos para eliminar ineficiencias, reducir costos y aumentar la productividad de tu equipo de trabajo.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">👥</div>
+                    <h3>Desarrollo Organizacional</h3>
+                    <p>Fortalecemos la cultura organizacional y desarrollamos el talento humano de tu empresa para crear equipos de alto rendimiento y liderazgo efectivo.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💼</div>
+                    <h3>Consultoría Financiera</h3>
+                    <p>Optimizamos la gestión financiera de tu empresa, mejoramos el flujo de caja y desarrollamos estrategias de inversión y financiamiento.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h3>Marketing y Ventas</h3>
+                    <p>Creamos estrategias de marketing digital y tradicional que aumenten tu presencia en el mercado y generen más oportunidades de venta.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Implementación Tecnológica</h3>
+                    <p>Te ayudamos a adoptar e implementar tecnologías que automaticen procesos y mejoren la eficiencia operativa de tu negocio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Paquetes -->
+    <section id="paquetes">
+        <div class="container">
+            <div class="section-header">
+                <h2>Paquetes de Consultoría</h2>
+                <p>Elige el paquete que mejor se adapte a las necesidades de tu empresa</p>
+            </div>
+            <div class="packages-grid">
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3>Básico</h3>
+                        <div class="package-price">$15,000<span style="font-size: 1rem;">/mes</span></div>
+                    </div>
+                    <div class="package-body">
+                        <ul class="package-features">
+                            <li>Consultoría mensual (8 horas)</li>
+                            <li>Análisis de procesos básico</li>
+                            <li>Reporte mensual de recomendaciones</li>
+                            <li>Soporte por email</li>
+                            <li>1 sesión de seguimiento</li>
+                        </ul>
+                        <a href="#contacto" class="btn-primary" style="width: 100%; text-align: center;">Contratar</a>
+                    </div>
+                </div>
+
+                <div class="package-card featured">
+                    <div class="package-header">
+                        <h3>Profesional</h3>
+                        <div class="package-price">$25,000<span style="font-size: 1rem;">/mes</span></div>
+                        <p style="margin-top: 1rem;">Más Popular</p>
+                    </div>
+                    <div class="package-body">
+                        <ul class="package-features">
+                            <li>Consultoría mensual (16 horas)</li>
+                            <li>Análisis completo de procesos</li>
+                            <li>Plan estratégico trimestral</li>
+                            <li>Soporte prioritario</li>
+                            <li>3 sesiones de seguimiento</li>
+                            <li>Capacitación del equipo</li>
+                            <li>Dashboard de métricas</li>
+                        </ul>
+                        <a href="#contacto" class="btn-primary" style="width: 100%; text-align: center;">Contratar</a>
+                    </div>
+                </div>
+
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3>Enterprise</h3>
+                        <div class="package-price">$45,000<span style="font-size: 1rem;">/mes</span></div>
+                    </div>
+                    <div class="package-body">
+                        <ul class="package-features">
+                            <li>Consultoría ilimitada</li>
+                            <li>Análisis integral de la empresa</li>
+                            <li>Estrategia personalizada</li>
+                            <li>Soporte 24/7</li>
+                            <li>Sesiones semanales</li>
+                            <li>Formación continua</li>
+                            <li>Implementación de soluciones</li>
+                            <li>Consultor dedicado</li>
+                        </ul>
+                        <a href="#contacto" class="btn-primary" style="width: 100%; text-align: center;">Contratar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recursos -->
+    <section id="recursos">
+        <div class="container">
+            <div class="section-header">
+                <h2>Recursos Gratuitos</h2>
+                <p>Descarga herramientas y guías que te ayudarán a mejorar tu empresa</p>
+            </div>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-image">📊</div>
+                    <div class="resource-content">
+                        <h3>Guía de Planificación Estratégica</h3>
+                        <p>Una guía completa paso a paso para crear el plan estratégico de tu empresa con plantillas incluidas.</p>
+                        <a href="#" class="btn-primary">Descargar PDF</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-image">📋</div>
+                    <div class="resource-content">
+                        <h3>Checklist de Optimización</h3>
+                        <p>Lista de verificación para identificar áreas de mejora en tus procesos operativos y administrativos.</p>
+                        <a href="#" class="btn-primary">Descargar PDF</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-image">💡</div>
+                    <div class="resource-content">
+                        <h3>Webinar: Liderazgo Efectivo</h3>
+                        <p>Accede a nuestro webinar gratuito sobre técnicas de liderazgo para equipos de alto rendimiento.</p>
+                        <a href="#" class="btn-primary">Ver Webinar</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-image">📈</div>
+                    <div class="resource-content">
+                        <h3>Template de KPIs</h3>
+                        <p>Plantilla en Excel para definir y hacer seguimiento a los indicadores clave de tu negocio.</p>
+                        <a href="#" class="btn-primary">Descargar Excel</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-image">🎓</div>
+                    <div class="resource-content">
+                        <h3>E-book: Transformación Digital</h3>
+                        <p>Guía completa sobre cómo implementar la transformación digital en empresas tradicionales.</p>
+                        <a href="#" class="btn-primary">Descargar E-book</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-image">📞</div>
+                    <div class="resource-content">
+                        <h3>Consulta Gratuita</h3>
+                        <p>Agenda una sesión de 30 minutos sin costo para evaluar las necesidades de tu empresa.</p>
+                        <a href="#contacto" class="btn-primary">Agendar Cita</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto">
+        <div class="container">
+            <div class="section-header" style="color: white;">
+                <h2>Contactanos</h2>
+                <p>Estamos listos para ayudarte a transformar tu empresa. ¡Conversemos!</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico</label>
+                            <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="empresa">Empresa</label>
+                            <input type="text" id="empresa" name="empresa" placeholder="Nombre de tu empresa">
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono" placeholder="+52 999 123 4567">
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntanos sobre tu proyecto o necesidades..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary" style="width: 100%;">Enviar Mensaje</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <strong>Dirección</strong><br>
+                            Calle 60 #123, Centro<br>
+                            Mérida, Yucatán 97000
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <strong>Teléfono</strong><br>
+                            +52 999 123 4567
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <strong>Email</strong><br>
+                            info@consultoriapro.com
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🕒</div>
+                        <div>
+                            <strong>Horario</strong><br>
+                            Lun - Vie: 9:00 AM - 6:00 PM<br>
+                            Sáb: 9:00 AM - 2:00 PM
+                        </div>
+                    </div>
+                    <div style="margin-top: 2rem;">
+                        <h4 style="margin-bottom: 1rem; color: var(--accent-color);">¿Necesitas ayuda inmediata?</h4>
+                        <p style="margin-bottom: 1rem;">Agenda una consulta gratuita de 30 minutos</p>
+                        <a href="tel:+529991234567" class="btn-secondary">Llamar Ahora</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+                <div>
+                    <h3 style="color: var(--accent-color); margin-bottom: 1rem;">Consultoria Pro</h3>
+                    <p>Transformamos empresas hacia el éxito a través de estrategias personalizadas y soluciones innovadoras.</p>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 1rem;">Servicios</h4>
+                    <ul style="list-style: none; text-align: left;">
+                        <li style="margin-bottom: 0.5rem;"><a href="#servicios" style="color: rgba(255,255,255,0.8); text-decoration: none;">Estrategia Empresarial</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#servicios" style="color: rgba(255,255,255,0.8); text-decoration: none;">Optimización de Procesos</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#servicios" style="color: rgba(255,255,255,0.8); text-decoration: none;">Desarrollo Organizacional</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#servicios" style="color: rgba(255,255,255,0.8); text-decoration: none;">Consultoría Financiera</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 1rem;">Enlaces Rápidos</h4>
+                    <ul style="list-style: none; text-align: left;">
+                        <li style="margin-bottom: 0.5rem;"><a href="#quienes-somos" style="color: rgba(255,255,255,0.8); text-decoration: none;">Quienes Somos</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#paquetes" style="color: rgba(255,255,255,0.8); text-decoration: none;">Paquetes</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#recursos" style="color: rgba(255,255,255,0.8); text-decoration: none;">Recursos</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#contacto" style="color: rgba(255,255,255,0.8); text-decoration: none;">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook">📘</a>
+                <a href="#" aria-label="LinkedIn">💼</a>
+                <a href="#" aria-label="Twitter">🐦</a>
+                <a href="#" aria-label="Instagram">📷</a>
+                <a href="#" aria-label="YouTube">📺</a>
+            </div>
+            <hr style="margin: 2rem 0; border: none; height: 1px; background: rgba(255,255,255,0.2);">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <p>&copy; 2025 Consultoria Pro. Todos los derechos reservados.</p>
+                <div>
+                    <a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none; margin: 0 1rem;">Política de Privacidad</a>
+                    <a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none; margin: 0 1rem;">Términos de Servicio</a>
+                    <a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none; margin: 0 1rem;">Aviso Legal</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simple validation
+            if (!data.nombre || !data.email) {
+                alert('Por favor, completa al menos tu nombre y email.');
+                return;
+            }
+            
+            // Simulate form submission
+            alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
+            this.reset();
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.service-card, .package-card, .resource-card, .stat-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Counter animation for stats
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent);
+                const increment = target / 50;
+                let current = 0;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.ceil(current) + (counter.textContent.includes('+') ? '+' : counter.textContent.includes('%') ? '%' : '');
+                        setTimeout(updateCounter, 40);
+                    } else {
+                        counter.textContent = counter.textContent;
+                    }
+                };
+                updateCounter();
+            });
+        }
+
+        // Trigger counter animation when stats section is visible
+        const statsObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
+        });
+    </script>
+
+    <!-- Performance optimizations -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- SEO optimizations -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Consultoria Pro",
+        "url": "https://www.tudominio.com",
+        "logo": "https://www.tudominio.com/logo.png",
+        "sameAs": [
+            "https://www.facebook.com/consultoriapro",
+            "https://www.linkedin.com/company/consultoriapro",
+            "https://www.twitter.com/consultoriapro"
+        ]
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎮 Space Invaders</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #000;
+      color: #fff;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    canvas {
+      background: #111;
+      display: block;
+      margin: 0 auto;
+      border: 3px solid #00ffcc;
+    }
+
+    #ui {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 18px;
+      color: #00ffcc;
+    }
+
+    #startBtn {
+      background: #00ffcc;
+      color: #000;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="ui">
+    <div>🔫 Nivel: <span id="level">1</span> | ❤️ Vidas: <span id="lives">3</span> | 🧠 Score: <span id="score">0</span></div>
+    <button id="startBtn">Comenzar juego</button>
+  </div>
+  <canvas id="gameCanvas" width="600" height="400"></canvas>
+
+  <script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    const startBtn = document.getElementById('startBtn');
+    const levelSpan = document.getElementById('level');
+    const livesSpan = document.getElementById('lives');
+    const scoreSpan = document.getElementById('score');
+
+    let player, bullets, enemies, level = 1, lives = 3, score = 0, gameRunning = false;
+
+    const colors = ['#00ffcc', '#ff00ff', '#ffff00', '#ff6600', '#00ffff'];
+
+    class Player {
+      constructor() {
+        this.width = 50;
+        this.height = 20;
+        this.x = canvas.width / 2 - this.width / 2;
+        this.y = canvas.height - this.height - 10;
+        this.color = '#00ffcc';
+      }
+
+      draw() {
+        ctx.fillStyle = this.color;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+      }
+
+      move(dir) {
+        const step = 10;
+        this.x += dir * step;
+        this.x = Math.max(0, Math.min(canvas.width - this.width, this.x));
+      }
+    }
+
+    class Bullet {
+      constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.radius = 3;
+        this.color = '#ffffff';
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+        ctx.closePath();
+      }
+
+      update() {
+        this.y -= 5;
+      }
+    }
+
+    class Enemy {
+      constructor(x, y, speed) {
+        this.x = x;
+        this.y = y;
+        this.width = 30;
+        this.height = 20;
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+        this.speed = speed;
+        this.direction = 1;
+      }
+
+      draw() {
+        ctx.fillStyle = this.color;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+      }
+
+      update() {
+        this.x += this.speed * this.direction;
+        if (this.x <= 0 || this.x + this.width >= canvas.width) {
+          this.direction *= -1;
+          this.y += 20;
+        }
+      }
+    }
+
+    function createEnemies(level) {
+      const enemies = [];
+      const rows = 3 + level;
+      const cols = 5 + level;
+      const spacing = 50;
+      const offset = 30;
+      for (let row = 0; row < rows; row++) {
+        for (let col = 0; col < cols; col++) {
+          enemies.push(new Enemy(col * spacing + offset, row * 30 + offset, 1 + level * 0.2));
+        }
+      }
+      return enemies;
+    }
+
+    function resetGame() {
+      player = new Player();
+      bullets = [];
+      enemies = createEnemies(level);
+    }
+
+    function drawGame() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      player.draw();
+      bullets.forEach(b => b.draw());
+      enemies.forEach(e => e.draw());
+    }
+
+    function updateGame() {
+      bullets.forEach(b => b.update());
+      bullets = bullets.filter(b => b.y > 0);
+      enemies.forEach(e => e.update());
+
+      // Detección de colisiones
+      for (let i = bullets.length - 1; i >= 0; i--) {
+        for (let j = enemies.length - 1; j >= 0; j--) {
+          if (
+            bullets[i].x > enemies[j].x && bullets[i].x < enemies[j].x + enemies[j].width &&
+            bullets[i].y > enemies[j].y && bullets[i].y < enemies[j].y + enemies[j].height
+          ) {
+            bullets.splice(i, 1);
+            enemies.splice(j, 1);
+            score += 10;
+            break;
+          }
+        }
+      }
+
+      if (enemies.some(e => e.y + e.height > canvas.height - 40)) {
+        lives--;
+        livesSpan.textContent = lives;
+        if (lives <= 0) {
+          alert('💀 ¡Perdiste! Tu puntaje fue: ' + score);
+          level = 1;
+          score = 0;
+          lives = 3;
+        }
+        resetGame();
+      }
+
+      if (enemies.length === 0) {
+        level++;
+        alert('🚀 ¡Nivel superado!');
+        resetGame();
+        levelSpan.textContent = level;
+      }
+
+      scoreSpan.textContent = score;
+    }
+
+    function gameLoop() {
+      if (gameRunning) {
+        drawGame();
+        updateGame();
+        requestAnimationFrame(gameLoop);
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (!gameRunning) return;
+      if (e.key === 'ArrowLeft') player.move(-1);
+      if (e.key === 'ArrowRight') player.move(1);
+      if (e.key === ' ') bullets.push(new Bullet(player.x + player.width / 2, player.y));
+    });
+
+    startBtn.addEventListener('click', () => {
+      level = 1;
+      lives = 3;
+      score = 0;
+      levelSpan.textContent = level;
+      livesSpan.textContent = lives;
+      scoreSpan.textContent = score;
+      gameRunning = true;
+      resetGame();
+      gameLoop();
+    });
+  </script>
+</body>
+</html>

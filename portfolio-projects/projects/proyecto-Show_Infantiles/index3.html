@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Kids Entertainment</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #ff6b6b;
+            --secondary: #4ecdc4;
+            --accent: #ffe66d;
+            --dark: #292f36;
+            --light: #f7fff7;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 0.5rem 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        header.scrolled .logo {
+            color: var(--primary);
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        header.scrolled .nav-links a {
+            color: var(--dark);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        header.scrolled .hamburger {
+            color: var(--dark);
+        }
+
+        /* Language Toggle */
+        .language-toggle {
+            display: flex;
+            margin-left: 2rem;
+        }
+
+        .language-btn {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        header.scrolled .language-btn {
+            color: var(--dark);
+        }
+
+        .language-btn.active {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        header.scrolled .language-btn.active {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: url('https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            margin-top: 70px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--dark);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            animation: pulse 2s infinite;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Values Section */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .value-card h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        /* Calendar Section */
+        .calendar {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .month {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .month h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .day-name {
+            text-align: center;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .dates {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1rem;
+        }
+
+        .date {
+            background: white;
+            padding: 1rem;
+            border-radius: 5px;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .date.has-event::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            bottom: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .date:hover {
+            background: var(--primary);
+            color: white;
+            cursor: pointer;
+        }
+
+        .event-info {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .event-info.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .event-info h4 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+        }
+
+        .nav-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .nav-btn:hover {
+            background: var(--secondary);
+        }
+
+        /* Packages Section */
+        .packages {
+            background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+            padding: 4rem 2rem;
+        }
+
+        .packages-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .package-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .package-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .package-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .package-card:hover .package-image img {
+            transform: scale(1.1);
+        }
+
+        .package-content {
+            padding: 1.5rem;
+        }
+
+        .package-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .package-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--secondary);
+            margin: 1rem 0;
+        }
+
+        .package-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .package-features li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .package-features li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        .popular-tag {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: left;
+        }
+
+        .footer-column h3 {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 230, 109, 0.7);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(255, 230, 109, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 230, 109, 0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+                padding: 2rem;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+            }
+
+            .nav-links a {
+                color: var(--dark);
+                font-size: 1.5rem;
+            }
+
+            header.scrolled .nav-links {
+                top: 60px;
+                height: calc(100vh - 60px);
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .btn {
+                padding: 0.6rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            .dates, .days {
+                gap: 0.5rem;
+            }
+
+            .date {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <a href="#" class="logo">
+                <img src="https://via.placeholder.com/50" alt="Magic Kids Logo">
+                <span class="en">Magic Kids</span>
+                <span class="es" style="display: none;">Magia Infantil</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="#home" class="en">Home</a><a href="#home" class="es" style="display: none;">Inicio</a></li>
+                <li><a href="#about" class="en">About Us</a><a href="#about" class="es" style="display: none;">Nosotros</a></li>
+                <li><a href="#values" class="en">Values</a><a href="#values" class="es" style="display: none;">Valores</a></li>
+                <li><a href="#calendar" class="en">Calendar</a><a href="#calendar" class="es" style="display: none;">Calendario</a></li>
+                <li><a href="#packages" class="en">Packages</a><a href="#packages" class="es" style="display: none;">Paquetes</a></li>
+                <li><a href="#contact" class="en">Contact</a><a href="#contact" class="es" style="display: none;">Contacto</a></li>
+            </ul>
+            
+            <div class="language-toggle">
+                <button class="language-btn active" data-lang="en">EN</button>
+                <button class="language-btn" data-lang="es">ES</button>
+            </div>
+            
+            <button class="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="en">Magical Moments for Kids</h1>
+            <h1 class="es" style="display: none;">Momentos Mágicos para Niños</h1>
+            
+            <p class="en">Bringing joy, laughter and unforgettable memories to your child's special day</p>
+            <p class="es" style="display: none;">Llevando alegría, risas y recuerdos inolvidables al día especial de tu hijo</p>
+            
+            <a href="#contact" class="btn en">Book Now</a>
+            <a href="#contact" class="btn es" style="display: none;">Reservar Ahora</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title en">About Us</h2>
+        <h2 class="section-title es" style="display: none;">Sobre Nosotros</h2>
+        
+        <div class="about-content">
+            <div class="about-text">
+                <p class="en">Magic Kids Entertainment has been creating magical experiences for children for over 10 years. Our team of professional performers, educators, and event specialists are dedicated to making every event unforgettable.</p>
+                <p class="es" style="display: none;">Magia Infantil ha estado creando experiencias mágicas para niños durante más de 10 años. Nuestro equipo de artistas profesionales, educadores y especialistas en eventos se dedica a hacer que cada evento sea inolvidable.</p>
+                
+                <p class="en">We specialize in character performances, interactive shows, educational entertainment, and full-event production for birthdays, schools, and corporate family days.</p>
+                <p class="es" style="display: none;">Nos especializamos en actuaciones de personajes, espectáculos interactivos, entretenimiento educativo y producción completa de eventos para cumpleaños, escuelas y días familiares corporativos.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1541178735493-479c1a27ed24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" alt="Kids enjoying a show">
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section id="values">
+        <h2 class="section-title en">Our Values</h2>
+        <h2 class="section-title es" style="display: none;">Nuestros Valores</h2>
+        
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-smile"></i>
+                </div>
+                <h3 class="en">Joy</h3>
+                <h3 class="es" style="display: none;">Alegría</h3>
+                <p class="en">We believe every child deserves moments of pure happiness and wonder.</p>
+                <p class="es" style="display: none;">Creemos que cada niño merece momentos de pura felicidad y asombro.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3 class="en">Creativity</h3>
+                <h3 class="es" style="display: none;">Creatividad</h3>
+                <p class="en">Our shows are designed to spark imagination and creative thinking.</p>
+                <p class="es" style="display: none;">Nuestros espectáculos están diseñados para despertar la imaginación y el pensamiento creativo.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="en">Safety</h3>
+                <h3 class="es" style="display: none;">Seguridad</h3>
+                <p class="en">All our performers are trained in child safety and first aid.</p>
+                <p class="es" style="display: none;">Todos nuestros artistas están capacitados en seguridad infantil y primeros auxilios.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3 class="en">Education</h3>
+                <h3 class="es" style="display: none;">Educación</h3>
+                <p class="en">We incorporate learning elements into all our performances.</p>
+                <p class="es" style="display: none;">Incorporamos elementos de aprendizaje en todas nuestras actuaciones.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendar Section -->
+    <section id="calendar">
+        <h2 class="section-title en">Presentation Calendar</h2>
+        <h2 class="section-title es" style="display: none;">Calendario de Presentaciones</h2>
+        
+        <div class="calendar">
+            <div class="month">
+                <h3 id="current-month" class="en">July 2023</h3>
+                <h3 id="current-month-es" class="es" style="display: none;">Julio 2023</h3>
+            </div>
+            
+            <div class="days">
+                <div class="day-name en">Sun</div>
+                <div class="day-name es" style="display: none;">Dom</div>
+                <div class="day-name en">Mon</div>
+                <div class="day-name es" style="display: none;">Lun</div>
+                <div class="day-name en">Tue</div>
+                <div class="day-name es" style="display: none;">Mar</div>
+                <div class="day-name en">Wed</div>
+                <div class="day-name es" style="display: none;">Mié</div>
+                <div class="day-name en">Thu</div>
+                <div class="day-name es" style="display: none;">Jue</div>
+                <div class="day-name en">Fri</div>
+                <div class="day-name es" style="display: none;">Vie</div>
+                <div class="day-name en">Sat</div>
+                <div class="day-name es" style="display: none;">Sáb</div>
+            </div>
+            
+            <div class="dates" id="calendar-dates">
+                <!-- Calendar dates will be populated by JavaScript -->
+            </div>
+            
+            <div class="event-info" id="event-info">
+                <h4 id="event-title">Princess Party Show</h4>
+                <p id="event-date">July 15, 2023</p>
+                <p id="event-desc">Join our magical princesses for an afternoon of songs, dances, and royal fun! Perfect for ages 3-8.</p>
+                <a href="#contact" class="btn">Book This Event</a>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn" id="prev-month">
+                    <span class="en">Previous</span>
+                    <span class="es" style="display: none;">Anterior</span>
+                </button>
+                <button class="nav-btn" id="next-month">
+                    <span class="en">Next</span>
+                    <span class="es" style="display: none;">Siguiente</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section class="packages" id="packages">
+        <h2 class="section-title en">Show Packages</h2>
+        <h2 class="section-title es" style="display: none;">Paquetes de Espectáculos</h2>
+        
+        <p class="en" style="text-align: center; margin-bottom: 2rem;">Choose from our popular character packages or customize your own!</p>
+        <p class="es" style="text-align: center; margin-bottom: 2rem; display: none;">¡Elige entre nuestros paquetes de personajes populares o personaliza el tuyo!</p>
+        
+        <div class="packages-container">
+            <div class="package-card">
+                <div class="package-image">
+                    <img src="https://images.unsplash.com/photo-1599623560574-39d485900c95?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Princess Party">
+                </div>
+                <div class="package-content">
+                    <h3 class="en">Princess Party</h3>
+                    <h3 class="es" style="display: none;">Fiesta de Princesas</h3>
+                    <div class="package-price">$299</div>
+                    <ul class="package-features">
+                        <li class="en">1-hour princess performance</li>
+                        <li class="es" style="display: none;">Actuación de princesa de 1 hora</li>
+                        <li class="en">Photo opportunities</li>
+                        <li class="es" style="display: none;">Oportunidades para fotos</li>
+                        <li class="en">Crown decorating activity</li>
+                        <li class="es" style="display: none;">Actividad de decoración de coronas</li>
+                        <li class="en">Royal dance lesson</li>
+                        <li class="es" style="display: none;">Lección de baile real</li>
+                    </ul>
+                    <a href="#contact" class="btn en">Book Now</a>
+                    <a href="#contact" class="btn es" style="display: none;">Reservar Ahora</a>
+                </div>
+            </div>
+            
+            <div class="package-card">
+                <div class="popular-tag en">Most Popular</div>
+                <div class="popular-tag es" style="display: none;">Más Popular</div>
+                <div class="package-image">
+                    <img src="https://images.unsplash.com/photo-1635805737707-575885ab0820?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="Superhero Adventure">
+                </div>
+                <div class="package-content">
+                    <h3 class="en">Superhero Adventure</h3>
+                    <h3 class="es" style="display: none;">Aventura de Superhéroes</h3>
+                    <div class="package-price">$349</div>
+                    <ul class="package-features">
+                        <li class="en">1.5 hour superhero training</li>
+                        <li class="es" style="display: none;">Entrenamiento de superhéroes de 1.5 horas</li>
+                        <li class="en">Obstacle course challenge</li>
+                        <li class="es" style="display: none;">Desafío de pista de obstáculos</li>
+                        <li class="en">Cape and mask craft</li>
+                        <li class="es" style="display: none;">Manualidad de capa y máscara</li>
+                        <li class="en">Certificate of heroism</li>
+                        <li class="es" style="display: none;">Certificado de heroísmo</li>
+                    </ul>
+                    <a href="#contact" class="btn en">Book Now</a>
+                    <a href="#contact" class="btn es" style="display: none;">Reservar Ahora</a>
+                </div>
+            </div>
+            
+            <div class="package-card">
+                <div class="package-image">
+                    <img src="https://images.unsplash.com/photo-1608889825205-eebdb9fc5806?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1180&q=80" alt="Magical Creatures">
+                </div>
+                <div class="package-content">
+                    <h3 class="en">Magical Creatures</h3>
+                    <h3 class="es" style="display: none;">Criaturas Mágicas</h3>
+                    <div class="package-price">$399</div>
+                    <ul class="package-features">
+                        <li class="en">Meet 3 magical creatures</li>
+                        <li class="es" style="display: none;">Conoce 3 criaturas mágicas</li>
+                        <li class="en">Interactive storytelling</li>
+                        <li class="es" style="display: none;">Narración interactiva</li>
+                        <li class="en">Magical potion making</li>
+                        <li class="es" style="display: none;">Elaboración de poción mágica</li>
+                        <li class="en">Take-home creature egg</li>
+                        <li class="es" style="display: none;">Huevo de criatura para llevar</li>
+                    </ul>
+                    <a href="#contact" class="btn en">Book Now</a>
+                    <a href="#contact" class="btn es" style="display: none;">Reservar Ahora</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title en">Contact Us</h2>
+        <h2 class="section-title es" style="display: none;">Contáctanos</h2>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <h3 class="en">Location</h3>
+                        <h3 class="es" style="display: none;">Ubicación</h3>
+                        <p>123 Magic Street, Imagination City</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div>
+                        <h3 class="en">Phone</h3>
+                        <h3 class="es" style="display: none;">Teléfono</h3>
+                        <p>+1 (555) 123-4567</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h3 class="en">Email</h3>
+                        <h3 class="es" style="display: none;">Correo</h3>
+                        <p>info@magickids.com</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div>
+                        <h3 class="en">Hours</h3>
+                        <h3 class="es" style="display: none;">Horario</h3>
+                        <p class="en">Monday - Friday: 9am - 6pm<br>Saturday: 10am - 4pm<br>Sunday: Closed</p>
+                        <p class="es" style="display: none;">Lunes - Viernes: 9am - 6pm<br>Sábado: 10am - 4pm<br>Domingo: Cerrado</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <form id="booking-form">
+                    <div class="form-group">
+                        <label for="name" class="en">Name</label>
+                        <label for="name" class="es" style="display: none;">Nombre</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email" class="en">Email</label>
+                        <label for="email" class="es" style="display: none;">Correo</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone" class="en">Phone</label>
+                        <label for="phone" class="es" style="display: none;">Teléfono</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="event-type" class="en">Event Type</label>
+                        <label for="event-type" class="es" style="display: none;">Tipo de Evento</label>
+                        <select id="event-type" name="event-type" required>
+                            <option value="" class="en">Select an option</option>
+                            <option value="" class="es" style="display: none;">Selecciona una opción</option>
+                            <option value="birthday" class="en">Birthday Party</option>
+                            <option value="birthday" class="es" style="display: none;">Fiesta de Cumpleaños</option>
+                            <option value="school" class="en">School Event</option>
+                            <option value="school" class="es" style="display: none;">Evento Escolar</option>
+                            <option value="corporate" class="en">Corporate Family Day</option>
+                            <option value="corporate" class="es" style="display: none;">Día Familiar Corporativo</option>
+                            <option value="other" class="en">Other</option>
+                            <option value="other" class="es" style="display: none;">Otro</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="package" class="en">Package Interest</label>
+                        <label for="package" class="es" style="display: none;">Paquete de Interés</label>
+                        <select id="package" name="package">
+                            <option value="" class="en">Select a package (optional)</option>
+                            <option value="" class="es" style="display: none;">Selecciona un paquete (opcional)</option>
+                            <option value="princess" class="en">Princess Party</option>
+                            <option value="princess" class="es" style="display: none;">Fiesta de Princesas</option>
+                            <option value="superhero" class="en">Superhero Adventure</option>
+                            <option value="superhero" class="es" style="display: none;">Aventura de Superhéroes</option>
+                            <option value="creatures" class="en">Magical Creatures</option>
+                            <option value="creatures" class="es" style="display: none;">Criaturas Mágicas</option>
+                            <option value="custom" class="en">Custom Package</option>
+                            <option value="custom" class="es" style="display: none;">Paquete Personalizado</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message" class="en">Message</label>
+                        <label for="message" class="es" style="display: none;">Mensaje</label>
+                        <textarea id="message" name="message" required class="en">Tell us about your event needs...</textarea>
+                        <textarea id="message-es" name="message" required class="es" style="display: none;">Cuéntanos sobre las necesidades de tu evento...</textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn en">Send Message</button>
+                    <button type="submit" class="btn es" style="display: none;">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3 class="en">Magic Kids</h3>
+                <h3 class="es" style="display: none;">Magia Infantil</h3>
+                <p class="en">Creating magical experiences for children since 2012.</p>
+                <p class="es" style="display: none;">Creando experiencias mágicas para niños desde 2012.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3 class="en">Quick Links</h3>
+                <h3 class="es" style="display: none;">Enlaces Rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="#home" class="en">Home</a><a href="#home" class="es" style="display: none;">Inicio</a></li>
+                    <li><a href="#about" class="en">About Us</a><a href="#about" class="es" style="display: none;">Nosotros</a></li>
+                    <li><a href="#packages" class="en">Packages</a><a href="#packages" class="es" style="display: none;">Paquetes</a></li>
+                    <li><a href="#calendar" class="en">Calendar</a><a href="#calendar" class="es" style="display: none;">Calendario</a></li>
+                    <li><a href="#contact" class="en">Contact</a><a href="#contact" class="es" style="display: none;">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3 class="en">Services</h3>
+                <h3 class="es" style="display: none;">Servicios</h3>
+                <ul class="footer-links">
+                    <li><a href="#" class="en">Birthday Parties</a><a href="#" class="es" style="display: none;">Fiestas de Cumpleaños</a></li>
+                    <li><a href="#" class="en">School Events</a><a href="#" class="es" style="display: none;">Eventos Escolares</a></li>
+                    <li><a href="#" class="en">Corporate Events</a><a href="#" class="es" style="display: none;">Eventos Corporativos</a></li>
+                    <li><a href="#" class="en">Character Appearances</a><a href="#" class="es" style="display: none;">Apariciones de Personajes</a></li>
+                    <li><a href="#" class="en">Custom Packages</a><a href="#" class="es" style="display: none;">Paquetes Personalizados</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p class="en">&copy; 2023 Magic Kids Entertainment. All rights reserved.</p>
+            <p class="es" style="display: none;">&copy; 2023 Magia Infantil. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Scroll Header Effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+        
+        // Language Toggle
+        const languageBtns = document.querySelectorAll('.language-btn');
+        
+        languageBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                languageBtns.forEach(b => b.classList.remove('active'));
+                
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                // Get selected language
+                const lang = btn.getAttribute('data-lang');
+                
+                // Hide all language elements
+                document.querySelectorAll('.en, .es').forEach(el => {
+                    el.style.display = 'none';
+                });
+                
+                // Show elements for selected language
+                document.querySelectorAll(`.${lang}`).forEach(el => {
+                    el.style.display = 'block';
+                });
+                
+                // Special handling for textareas
+                if (lang === 'en') {
+                    document.getElementById('message').style.display = 'block';
+                    document.getElementById('message-es').style.display = 'none';
+                } else {
+                    document.getElementById('message').style.display = 'none';
+                    document.getElementById('message-es').style.display = 'block';
+                }
+            });
+        });
+        
+        // Calendar Functionality
+        let currentDate = new Date();
+        
+        function renderCalendar() {
+            const calendarDates = document.getElementById('calendar-dates');
+            calendarDates.innerHTML = '';
+            
+            const month = currentDate.getMonth();
+            const year = currentDate.getFullYear();
+            
+            // Update month display
+            const monthNames = ["January", "February", "March", "April", "May", "June", 
+                              "July", "August", "September", "October", "November", "December"];
+            const monthNamesEs = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", 
+                                "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+            
+            document.getElementById('current-month').textContent = `${monthNames[month]} ${year}`;
+            document.getElementById('current-month-es').textContent = `${monthNamesEs[month]} ${year}`;
+            
+            // Get first day of month and total days in month
+            const firstDay = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            
+            // Get days from previous month
+            const daysInPrevMonth = new Date(year, month, 0).getDate();
+            
+            // Create blank spaces for days from previous month
+            for (let i = 0; i < firstDay; i++) {
+                const dateElement = document.createElement('div');
+                dateElement.className = 'date';
+                dateElement.textContent = daysInPrevMonth - firstDay + i + 1;
+                dateElement.style.opacity = '0.3';
+                calendarDates.appendChild(dateElement);
+            }
+            
+            // Create dates for current month
+            const eventDates = [5, 12, 15, 20, 25]; // Sample event dates
+            
+            for (let i = 1; i <= daysInMonth; i++) {
+                const dateElement = document.createElement('div');
+                dateElement.className = 'date';
+                dateElement.textContent = i;
+                
+                if (eventDates.includes(i)) {
+                    dateElement.classList.add('has-event');
+                    
+                    dateElement.addEventListener('click', () => {
+                        const eventInfo = document.getElementById('event-info');
+                        eventInfo.classList.add('active');
+                        
+                        // Sample event data - in a real app, this would come from a database
+                        document.getElementById('event-title').textContent = 
+                            i === 15 ? 'Princess Party Show' : 
+                            i === 5 ? 'Superhero Training' : 
+                            i === 12 ? 'Magical Creatures Visit' : 
+                            i === 20 ? 'Puppet Show Extravaganza' : 'Circus Skills Workshop';
+                        
+                        document.getElementById('event-date').textContent = 
+                            `${monthNames[month]} ${i}, ${year}`;
+                            
+                        document.getElementById('event-desc').textContent = 
+                            i === 15 ? 'Join our magical princesses for an afternoon of songs, dances, and royal fun! Perfect for ages 3-8.' : 
+                            i === 5 ? 'Kids will learn superhero moves and complete an obstacle course to earn their superhero certificate!' : 
+                            i === 12 ? 'Meet our friendly magical creatures and learn about caring for fantastic beasts.' : 
+                            i === 20 ? 'An interactive puppet show with classic fairy tales and audience participation.' : 
+                            'Learn juggling, plate spinning, and other circus skills in this fun workshop.';
+                    });
+                }
+                
+                calendarDates.appendChild(dateElement);
+            }
+            
+            // Calculate total cells needed (6 rows x 7 columns = 42)
+            const totalCells = 42;
+            const cellsFilled = firstDay + daysInMonth;
+            const remainingCells = totalCells - cellsFilled;
+            
+            // Create dates for next month
+            for (let i = 1; i <= remainingCells; i++) {
+                const dateElement = document.createElement('div');
+                dateElement.className = 'date';
+                dateElement.textContent = i;
+                dateElement.style.opacity = '0.3';
+                calendarDates.appendChild(dateElement);
+            }
+        }
+        
+        // Navigation buttons for calendar
+        document.getElementById('prev-month').addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            renderCalendar();
+        });
+        
+        document.getElementById('next-month').addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            renderCalendar();
+        });
+        
+        // Initialize calendar
+        renderCalendar();
+        
+        // Form Submission
+        document.getElementById('booking-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // In a real application, you would send this data to a server
+            alert(document.querySelector('.language-btn.active').getAttribute('data-lang') === 'en' ? 
+                'Thank you for your message! We will contact you soon.' : 
+                '¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.');
+            
+            // Reset form
+            e.target.reset();
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

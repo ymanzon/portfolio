@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Terra Inversiones - Especialistas en venta y renta de terrenos y bienes raíces. Encuentra tu propiedad ideal con nosotros. Servicios profesionales en Mérida, Yucatán.">
+    <meta name="keywords" content="bienes raíces, terrenos, venta, renta, propiedades, Mérida, Yucatán, inversión inmobiliaria">
+    <meta name="author" content="Terra Inversiones">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://terrainversiones.com">
+    <meta property="og:title" content="Terra Inversiones - Bienes Raíces y Terrenos">
+    <meta property="og:description" content="Especialistas en venta y renta de terrenos y bienes raíces en Yucatán">
+    <meta property="og:image" content="https://terrainversiones.com/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://terrainversiones.com">
+    <meta property="twitter:title" content="Terra Inversiones - Bienes Raíces y Terrenos">
+    <meta property="twitter:description" content="Especialistas en venta y renta de terrenos y bienes raíces en Yucatán">
+    <meta property="twitter:image" content="https://terrainversiones.com/og-image.jpg">
+
+    <title>Terra Inversiones - Bienes Raíces y Terrenos | Venta y Renta en Yucatán</title>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "RealEstateAgent",
+        "name": "Terra Inversiones",
+        "description": "Especialistas en venta y renta de terrenos y bienes raíces",
+        "url": "https://terrainversiones.com",
+        "telephone": "+52-999-123-4567",
+        "email": "contacto@terrainversiones.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Calle 60 #123",
+            "addressLocality": "Mérida",
+            "addressRegion": "Yucatán",
+            "postalCode": "97000",
+            "addressCountry": "MX"
+        },
+        "sameAs": [
+            "https://facebook.com/terrainversiones",
+            "https://instagram.com/terrainversiones"
+        ]
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        /* Header y Navegación */
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #3498db;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(52, 152, 219, 0.2);
+            color: #3498db;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23e8f5e8" width="1200" height="600"/><polygon fill="%2327ae60" points="0,300 200,250 400,350 600,200 800,320 1000,180 1200,280 1200,600 0,600"/></svg>');
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.6);
+        }
+
+        /* Secciones */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            border-radius: 2px;
+        }
+
+        /* Sobre Nosotros */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            height: 300px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Servicios */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #e8e8e8;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Paquetes */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .package-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .package-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .package-popular {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .package-popular .package-price {
+            color: white;
+        }
+
+        .package-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .package-popular .package-name {
+            color: white;
+        }
+
+        .package-price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 1rem;
+        }
+
+        .package-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .package-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .package-popular .package-features li {
+            border-bottom-color: rgba(255,255,255,0.2);
+        }
+
+        .package-button {
+            background: #3498db;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .package-button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .package-popular .package-button {
+            background: white;
+            color: #3498db;
+        }
+
+        /* Recursos */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .resource-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .resource-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .resource-item h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .resource-item p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .resource-link {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .resource-link:hover {
+            color: #2980b9;
+        }
+
+        /* Contacto */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e8e8e8;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .contact-info {
+            background: #2c3e50;
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 2rem;
+            color: #3498db;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item-icon {
+            width: 40px;
+            height: 40px;
+            background: #3498db;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #3498db;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            padding: 0.3rem 0;
+        }
+
+        .footer-section ul li a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #3498db;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #3498db;
+            color: white;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #34495e;
+            padding-top: 2rem;
+            color: #bdc3c7;
+        }
+
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .services-grid,
+            .packages-grid,
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .package-popular {
+                transform: none;
+            }
+        }
+
+        /* Efectos adicionales */
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="logo">Terra Inversiones</div>
+            <ul class="nav-menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#quienes-somos">Quiénes Somos</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#paquetes">Paquetes</a></li>
+                <li><a href="#recursos">Recursos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1 class="floating">Tu Inversión Inmobiliaria Perfecta</h1>
+            <p>Especialistas en venta y renta de terrenos y bienes raíces en Yucatán. Encuentra la propiedad de tus sueños con nosotros.</p>
+            <a href="#contacto" class="cta-button">Comienza Tu Inversión</a>
+        </div>
+    </section>
+
+    <!-- Quiénes Somos -->
+    <section id="quienes-somos" class="section">
+        <div class="container">
+            <h2 class="section-title">Quiénes Somos</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Expertos en Bienes Raíces con Más de 15 Años de Experiencia</h3>
+                    <p>En Terra Inversiones, somos una empresa familiar dedicada al sector inmobiliario en Yucatán desde 2008. Nos especializamos en la venta y renta de terrenos, casas, locales comerciales y desarrollos inmobiliarios.</p>
+                    <p>Nuestro equipo de profesionales certificados te acompañará en cada paso del proceso, desde la búsqueda inicial hasta la firma del contrato, garantizando transparencia, confianza y los mejores resultados para tu inversión.</p>
+                    <p>Con más de 500 transacciones exitosas y un portafolio diverso de propiedades, somos tu socio ideal para hacer realidad tus metas inmobiliarias en la hermosa península de Yucatán.</p>
+                </div>
+                <div class="about-image">
+                    <div>
+                        <h3>🏆 Premiados</h3>
+                        <p>Mejor Empresa de Bienes Raíces<br>Yucatán 2023</p>
+                        <p>✓ +500 Clientes Satisfechos<br>✓ 15+ Años de Experiencia<br>✓ Cobertura Estatal</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="section">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <h3>Venta de Propiedades</h3>
+                    <p>Casas, departamentos, locales comerciales y terrenos en las mejores ubicaciones de Yucatán. Asesoría completa en el proceso de compra.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔑</div>
+                    <h3>Renta de Inmuebles</h3>
+                    <p>Amplio catálogo de propiedades en renta para uso habitacional y comercial. Contratos seguros y administración profesional.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌾</div>
+                    <h3>Terrenos y Lotes</h3>
+                    <p>Especialistas en terrenos urbanos, rurales y para desarrollo. Asesoría en uso de suelo y potencial de inversión.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💼</div>
+                    <h3>Asesoría Legal</h3>
+                    <p>Acompañamiento legal completo en todas las transacciones. Verificación de documentos y trámites notariales.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Valuación de Propiedades</h3>
+                    <p>Estudios de mercado y avalúos profesionales para conocer el valor real de tu propiedad en el mercado actual.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏗️</div>
+                    <h3>Desarrollos Inmobiliarios</h3>
+                    <p>Participamos en el desarrollo de proyectos residenciales y comerciales desde la conceptualización hasta la entrega.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Paquetes -->
+    <section id="paquetes" class="section">
+        <div class="container">
+            <h2 class="section-title">Nuestros Paquetes</h2>
+            <div class="packages-grid">
+                <div class="package-card">
+                    <h3 class="package-name">Básico</h3>
+                    <div class="package-price">$2,500 MXN</div>
+                    <ul class="package-features">
+                        <li>✓ Búsqueda básica de propiedades</li>
+                        <li>✓ 3 visitas guiadas</li>
+                        <li>✓ Asesoría inicial</li>
+                        <li>✓ Verificación de documentos</li>
+                        <li>✓ Soporte por email</li>
+                    </ul>
+                    <a href="#contacto" class="package-button">Elegir Plan</a>
+                </div>
+                
+                <div class="package-card package-popular">
+                    <h3 class="package-name">Premium</h3>
+                    <div class="package-price">$5,500 MXN</div>
+                    <ul class="package-features">
+                        <li>✓ Búsqueda personalizada</li>
+                        <li>✓ Visitas ilimitadas</li>
+                        <li>✓ Asesoría legal completa</li>
+                        <li>✓ Avalúo profesional</li>
+                        <li>✓ Gestión de crédito</li>
+                        <li>✓ Soporte 24/7</li>
+                    </ul>
+                    <a href="#contacto" class="package-button">Más Popular</a>
+                </div>
+                
+                <div class="package-card">
+                    <h3 class="package-name">Empresarial</h3>
+                    <div class="package-price">$12,000 MXN</div>
+                    <ul class="package-features">
+                        <li>✓ Servicio corporativo completo</li>
+                        <li>✓ Portafolio exclusivo</li>
+                        <li>✓ Asesor dedicado</li>
+                        <li>✓ Análisis de inversión</li>
+                        <li>✓ Gestión de proyectos</li>
+                        <li>✓ Reportes mensuales</li>
+                    </ul>
+                    <a href="#contacto" class="package-button">Contactar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recursos -->
+    <section id="recursos" class="section">
+        <div class="container">
+            <h2 class="section-title">Recursos Útiles</h2>
+            <div class="resources-grid">
+                <div class="resource-item">
+                    <h3>📋 Guía del Comprador</h3>
+                    <p>Todo lo que necesitas saber antes de comprar tu primera propiedad en Yucatán.</p>
+                    <a href="#" class="resource-link">Descargar PDF →</a>
+                </div>
+                <div class="resource-item">
+                    <h3>💰 Calculadora de Crédito</h3>
+                    <p>Calcula tu capacidad de pago y encuentra el crédito hipotecario ideal para ti.</p>
+                    <a href="#" class="resource-link">Usar Calculadora →</a>
+                </div>
+                <div class="resource-item">
+                    <h3>🏘️ Zonas de Inversión</h3>
+                    <p>Conoce las mejores zonas para invertir en bienes raíces en Mérida y municipios.</p>
+                    <a href="#" class="resource-link">Ver Mapa →</a>
+                </div>
+                <div class="resource-item">
+                    <h3>📈 Reporte de Mercado</h3>
+                    <p>Análisis mensual del mercado inmobiliario yucateco con tendencias y precios.</p>
+                    <a href="#" class="resource-link">Leer Reporte →</a>
+                </div>
+                <div class="resource-item">
+                    <h3>⚖️ Aspectos Legales</h3>
+                    <p>Información sobre trámites, impuestos y aspectos legales en bienes raíces.</p>
+                    <a href="#" class="resource-link">Conocer Más →</a>
+                </div>
+                <div class="resource-item">
+                    <h3>🎯 Checklist de Inversión</h3>
+                    <p>Lista de verificación para evaluar una propiedad antes de invertir.</p>
+                    <a href="#" class="resource-link">Descargar →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="section">
+        <div class="container">
+            <h2 class="section-title">Contáctanos</h2>
+            <div class="contact-content">
+                <div class="contact-form">
+                    <h3>Solicita una Consulta Gratuita</h3>
+                    <form action="#" method="POST" onsubmit="handleSubmit(event)">
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="interes">Tipo de Interés</label>
+                            <select id="interes" name="interes" required style="width: 100%; padding: 12px; border: 2px solid #e8e8e8; border-radius: 8px; font-size: 1rem;">
+                                <option value="">Selecciona una opción</option>
+                                <option value="compra-casa">Compra de Casa</option>
+                                <option value="compra-terreno">Compra de Terreno</option>
+                                <option value="renta-casa">Renta de Casa</option>
+                                <option value="renta-local">Renta de Local</option>
+                                <option value="inversion">Oportunidades de Inversión</option>
+                                <option value="asesoria">Asesoría General</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos más sobre lo que buscas..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">Enviar Consulta</button>
+                    </form>
+                </div>
+                
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">📍</div>
+                        <div>
+                            <strong>Dirección</strong><br>
+                            Calle 60 #123 x 45 y 47<br>
+                            Centro, Mérida, Yucatán 97000
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">📞</div>
+                        <div>
+                            <strong>Teléfonos</strong><br>
+                            (999) 123-4567<br>
+                            (999) 987-6543
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">✉️</div>
+                        <div>
+                            <strong>Email</strong><br>
+                            contacto@terrainversiones.com<br>
+                            ventas@terrainversiones.com
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">⏰</div>
+                        <div>
+                            <strong>Horarios</strong><br>
+                            Lun - Vie: 9:00 AM - 7:00 PM<br>
+                            Sáb: 9:00 AM - 3:00 PM
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 2rem;">
+                        <h4 style="color: #3498db; margin-bottom: 1rem;">Síguenos en Redes</h4>
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="Facebook">📘</a>
+                            <a href="#" class="social-link" aria-label="Instagram">📷</a>
+                            <a href="#" class="social-link" aria-label="WhatsApp">💬</a>
+                            <a href="#" class="social-link" aria-label="LinkedIn">💼</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Terra Inversiones</h3>
+                    <p>Tu socio de confianza en bienes raíces. Especialistas en propiedades en Yucatán con más de 15 años de experiencia.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">📘</a>
+                        <a href="#" class="social-link" aria-label="Instagram">📷</a>
+                        <a href="#" class="social-link" aria-label="Twitter">🐦</a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">💼</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Servicios</h3>
+                    <ul>
+                        <li><a href="#servicios">Venta de Propiedades</a></li>
+                        <li><a href="#servicios">Renta de Inmuebles</a></li>
+                        <li><a href="#servicios">Terrenos y Lotes</a></li>
+                        <li><a href="#servicios">Asesoría Legal</a></li>
+                        <li><a href="#servicios">Valuación</a></li>
+                        <li><a href="#servicios">Desarrollos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Recursos</h3>
+                    <ul>
+                        <li><a href="#recursos">Guía del Comprador</a></li>
+                        <li><a href="#recursos">Calculadora de Crédito</a></li>
+                        <li><a href="#recursos">Zonas de Inversión</a></li>
+                        <li><a href="#recursos">Reporte de Mercado</a></li>
+                        <li><a href="#recursos">Blog Inmobiliario</a></li>
+                        <li><a href="#recursos">FAQs</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li>📍 Calle 60 #123, Centro</li>
+                        <li>📞 (999) 123-4567</li>
+                        <li>✉️ contacto@terrainversiones.com</li>
+                        <li>🕒 Lun-Vie: 9AM-7PM</li>
+                        <li>🕒 Sáb: 9AM-3PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Terra Inversiones. Todos los derechos reservados.</p>
+                <p>Desarrollado con ❤️ para impulsar tu éxito inmobiliario en Yucatán</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <div style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
+        <a href="https://wa.me/529991234567" target="_blank" 
+           style="display: flex; align-items: center; justify-content: center; width: 60px; height: 60px; 
+                  background: #25D366; color: white; border-radius: 50%; text-decoration: none; 
+                  font-size: 24px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); 
+                  transition: all 0.3s ease; animation: pulse 2s infinite;"
+           onmouseover="this.style.transform='scale(1.1)'"
+           onmouseout="this.style.transform='scale(1)'"
+           aria-label="Contactar por WhatsApp">
+            💬
+        </a>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Smooth scrolling para navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animación en scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observar elementos para animación
+        document.querySelectorAll('.service-card, .package-card, .resource-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Manejo del formulario
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // Simulación de envío
+            const submitButton = event.target.querySelector('.submit-button');
+            const originalText = submitButton.textContent;
+            
+            submitButton.textContent = 'Enviando...';
+            submitButton.disabled = true;
+            
+            setTimeout(() => {
+                alert(`¡Gracias ${data.nombre}! Hemos recibido tu consulta. Te contactaremos pronto al ${data.telefono}.`);
+                event.target.reset();
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+            }, 2000);
+        }
+
+        // Navegación móvil
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navMenu = document.querySelector('.nav-menu');
+
+        if (mobileMenu && navMenu) {
+            mobileMenu.addEventListener('click', () => {
+                navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+                navMenu.style.flexDirection = 'column';
+                navMenu.style.position = 'absolute';
+                navMenu.style.top = '100%';
+                navMenu.style.left = '0';
+                navMenu.style.right = '0';
+                navMenu.style.background = '#2c3e50';
+                navMenu.style.padding = '1rem';
+                navMenu.style.boxShadow = '0 5px 15px rgba(0,0,0,0.2)';
+            });
+        }
+
+        // Efecto parallax simple
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.hero');
+            if (parallax) {
+                const speed = scrolled * 0.5;
+                parallax.style.transform = `translateY(${speed}px)`;
+            }
+        });
+
+        // Header transparente en scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(44, 62, 80, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #2c3e50 0%, #34495e 100%)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Pulso para el botón de WhatsApp
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes pulse {
+                0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+                70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+                100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Contador de estadísticas (simulado)
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                element.textContent = Math.floor(current);
+                if (current >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                }
+            }, 20);
+        }
+
+        // Lazy loading para mejorar rendimiento
+        const lazyImages = document.querySelectorAll('img[data-src]');
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                    observer.unobserve(img);
+                }
+            });
+        });
+
+        lazyImages.forEach(img => imageObserver.observe(img));
+
+        // Validación mejorada del formulario
+        const inputs = document.querySelectorAll('input, textarea, select');
+        inputs.forEach(input => {
+            input.addEventListener('blur', validateField);
+            input.addEventListener('input', clearErrors);
+        });
+
+        function validateField(e) {
+            const field = e.target;
+            const value = field.value.trim();
+            
+            // Limpiar errores previos
+            clearFieldError(field);
+            
+            // Validaciones específicas
+            if (field.required && !value) {
+                showFieldError(field, 'Este campo es obligatorio');
+            } else if (field.type === 'email' && value && !isValidEmail(value)) {
+                showFieldError(field, 'Ingresa un email válido');
+            } else if (field.type === 'tel' && value && !isValidPhone(value)) {
+                showFieldError(field, 'Ingresa un teléfono válido (10 dígitos)');
+            }
+        }
+
+        function clearErrors(e) {
+            clearFieldError(e.target);
+        }
+
+        function showFieldError(field, message) {
+            field.style.borderColor = '#e74c3c';
+            const error = document.createElement('span');
+            error.className = 'field-error';
+            error.textContent = message;
+            error.style.color = '#e74c3c';
+            error.style.fontSize = '0.9rem';
+            error.style.display = 'block';
+            error.style.marginTop = '5px';
+            field.parentNode.appendChild(error);
+        }
+
+        function clearFieldError(field) {
+            field.style.borderColor = '#e8e8e8';
+            const error = field.parentNode.querySelector('.field-error');
+            if (error) {
+                error.remove();
+            }
+        }
+
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        function isValidPhone(phone) {
+            return /^\d{10}$/.test(phone.replace(/\D/g, ''));
+        }
+
+        // Función para mostrar/ocultar elementos según el scroll
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.service-card, .package-card, .resource-item');
+            
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                } else {
+                    element.style.opacity = '0';
+                    element.style.transform = 'translateY(20px)';
+                }
+            });
+        }
+
+        // Inicializar efectos de scroll
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Ejecutar una vez al cargar
+
+        console.log('🏠 Terra Inversiones - Sitio web cargado exitosamente');
+        console.log('📞 ¿Necesitas ayuda? Contacta: (999) 123-4567');
+    </script>
+</body>
+</html>

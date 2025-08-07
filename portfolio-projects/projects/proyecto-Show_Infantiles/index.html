@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Kids Shows - Diversión Garantizada</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animaciones */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-30px); }
+            60% { transform: translateY(-15px); }
+        }
+
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(-45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffecd2);
+            background-size: 400% 400%;
+            animation: rainbow 15s ease infinite;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: bounce 2s infinite;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+        }
+
+        .lang-toggle {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .lang-toggle:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.05);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-content {
+            z-index: 1;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            animation: bounce 3s infinite;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* About Section */
+        .about {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-radius: 20px;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::before {
+            content: '🎪';
+            position: absolute;
+            font-size: 5rem;
+            top: 20px;
+            right: 20px;
+            animation: sparkle 3s infinite;
+        }
+
+        /* Values Section */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-card {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: bounce 2s infinite;
+        }
+
+        /* Calendar Section */
+        .calendar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 20px;
+            margin: 2rem 0;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .event-card {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .event-card:hover {
+            transform: scale(1.05);
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* Packages Section */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .package-card {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .package-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .package-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s;
+        }
+
+        .package-card:hover::before {
+            animation: sparkle 1s ease-in-out;
+        }
+
+        .character-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-radius: 20px;
+            margin: 2rem 0;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.8);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            background: white;
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Hidden class for language toggle */
+        .hidden {
+            display: none;
+        }
+
+        /* Floating elements */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-element {
+            position: absolute;
+            font-size: 2rem;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating decorative elements -->
+    <div class="floating-elements">
+        <div class="floating-element" style="top: 10%; left: 10%;">🎈</div>
+        <div class="floating-element" style="top: 20%; right: 15%; animation-delay: 1s;">🎪</div>
+        <div class="floating-element" style="top: 60%; left: 5%; animation-delay: 2s;">🎭</div>
+        <div class="floating-element" style="bottom: 20%; right: 10%; animation-delay: 3s;">🎨</div>
+        <div class="floating-element" style="bottom: 40%; left: 20%; animation-delay: 4s;">⭐</div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo" data-es="✨ Magic Kids Shows" data-en="✨ Magic Kids Shows">✨ Magic Kids Shows</div>
+            <ul class="nav-links">
+                <li><a href="#inicio" data-es="Inicio" data-en="Home">Inicio</a></li>
+                <li><a href="#acerca" data-es="Acerca" data-en="About">Acerca</a></li>
+                <li><a href="#valores" data-es="Valores" data-en="Values">Valores</a></li>
+                <li><a href="#calendario" data-es="Calendario" data-en="Calendar">Calendario</a></li>
+                <li><a href="#paquetes" data-es="Paquetes" data-en="Packages">Paquetes</a></li>
+                <li><a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a></li>
+            </ul>
+            <button class="lang-toggle" onclick="toggleLanguage()">EN/ES</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1 data-es="¡Diversión Mágica para Niños!" data-en="Magical Fun for Kids!">¡Diversión Mágica para Niños!</h1>
+            <p data-es="Shows espectaculares que harán de tu evento una experiencia inolvidable llena de risas, magia y alegría" data-en="Spectacular shows that will make your event an unforgettable experience full of laughter, magic and joy">Shows espectaculares que harán de tu evento una experiencia inolvidable llena de risas, magia y alegría</p>
+            <a href="#contacto" class="cta-button" data-es="¡Reserva Ahora!" data-en="Book Now!">¡Reserva Ahora!</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="acerca" class="about">
+        <h2 class="section-title" data-es="Acerca de Nosotros" data-en="About Us">Acerca de Nosotros</h2>
+        <p data-es="Con más de 10 años de experiencia en entretenimiento infantil, somos especialistas en crear momentos mágicos que permanecerán en los corazones de los niños para siempre. Nuestro equipo de artistas profesionales está dedicado a brindar shows de la más alta calidad, combinando teatro, música, magia y diversión interactiva." data-en="With over 10 years of experience in children's entertainment, we specialize in creating magical moments that will remain in children's hearts forever. Our team of professional artists is dedicated to providing the highest quality shows, combining theater, music, magic and interactive fun.">Con más de 10 años de experiencia en entretenimiento infantil, somos especialistas en crear momentos mágicos que permanecerán en los corazones de los niños para siempre. Nuestro equipo de artistas profesionales está dedicado a brindar shows de la más alta calidad, combinando teatro, música, magia y diversión interactiva.</p>
+    </section>
+
+    <!-- Values Section -->
+    <section id="valores">
+        <h2 class="section-title" data-es="Nuestros Valores" data-en="Our Values">Nuestros Valores</h2>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">🎯</div>
+                <h3 data-es="Calidad" data-en="Quality">Calidad</h3>
+                <p data-es="Shows profesionales con los mejores estándares de entretenimiento" data-en="Professional shows with the best entertainment standards">Shows profesionales con los mejores estándares de entretenimiento</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">❤️</div>
+                <h3 data-es="Pasión" data-en="Passion">Pasión</h3>
+                <p data-es="Amor genuino por hacer sonreír a los niños y crear momentos especiales" data-en="Genuine love for making children smile and creating special moments">Amor genuino por hacer sonreír a los niños y crear momentos especiales</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🌟</div>
+                <h3 data-es="Creatividad" data-en="Creativity">Creatividad</h3>
+                <p data-es="Innovación constante en nuestros espectáculos y personajes" data-en="Constant innovation in our shows and characters">Innovación constante en nuestros espectáculos y personajes</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendar Section -->
+    <section id="calendario" class="calendar">
+        <h2 class="section-title" style="color: white;" data-es="Próximas Presentaciones" data-en="Upcoming Shows">Próximas Presentaciones</h2>
+        <div class="calendar-grid">
+            <div class="event-card">
+                <h3 data-es="Show de Superhéroes" data-en="Superhero Show">Show de Superhéroes</h3>
+                <p data-es="15 de Agosto - Centro Comercial Plaza" data-en="August 15th - Plaza Shopping Center">15 de Agosto - Centro Comercial Plaza</p>
+                <p data-es="3:00 PM" data-en="3:00 PM">3:00 PM</p>
+            </div>
+            <div class="event-card">
+                <h3 data-es="Fiesta de Princesas" data-en="Princess Party">Fiesta de Princesas</h3>
+                <p data-es="22 de Agosto - Parque Central" data-en="August 22nd - Central Park">22 de Agosto - Parque Central</p>
+                <p data-es="4:00 PM" data-en="4:00 PM">4:00 PM</p>
+            </div>
+            <div class="event-card">
+                <h3 data-es="Magia y Circo" data-en="Magic & Circus">Magia y Circo</h3>
+                <p data-es="29 de Agosto - Teatro Municipal" data-en="August 29th - Municipal Theater">29 de Agosto - Teatro Municipal</p>
+                <p data-es="5:00 PM" data-en="5:00 PM">5:00 PM</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="paquetes">
+        <h2 class="section-title" data-es="Paquetes de Shows" data-en="Show Packages">Paquetes de Shows</h2>
+        <div class="packages-grid">
+            <div class="package-card">
+                <div class="character-icon">🦸</div>
+                <h3 data-es="Paquete Superhéroes" data-en="Superhero Package">Paquete Superhéroes</h3>
+                <p data-es="Show interactivo con superhéroes, juegos, música y regalos sorpresa" data-en="Interactive show with superheroes, games, music and surprise gifts">Show interactivo con superhéroes, juegos, música y regalos sorpresa</p>
+                <div class="price" data-es="Desde $150" data-en="From $150">Desde $150</div>
+            </div>
+            <div class="package-card">
+                <div class="character-icon">👸</div>
+                <h3 data-es="Paquete Princesas" data-en="Princess Package">Paquete Princesas</h3>
+                <p data-es="Mundo de fantasía con princesas, bailes, canto y transformaciones mágicas" data-en="Fantasy world with princesses, dancing, singing and magical transformations">Mundo de fantasía con princesas, bailes, canto y transformaciones mágicas</p>
+                <div class="price" data-es="Desde $180" data-en="From $180">Desde $180</div>
+            </div>
+            <div class="package-card">
+                <div class="character-icon">🤡</div>
+                <h3 data-es="Paquete Payasos" data-en="Clown Package">Paquete Payasos</h3>
+                <p data-es="Diversión garantizada con payasos profesionales, globoflexia y magia" data-en="Guaranteed fun with professional clowns, balloon twisting and magic">Diversión garantizada con payasos profesionales, globoflexia y magia</p>
+                <div class="price" data-es="Desde $120" data-en="From $120">Desde $120</div>
+            </div>
+            <div class="package-card">
+                <div class="character-icon">🐻</div>
+                <h3 data-es="Paquete Personajes Animados" data-en="Animated Characters Package">Paquete Personajes Animados</h3>
+                <p data-es="Los personajes favoritos de los niños cobran vida en un show lleno de aventuras" data-en="Children's favorite characters come to life in a show full of adventures">Los personajes favoritos de los niños cobran vida en un show lleno de aventuras</p>
+                <div class="price" data-es="Desde $200" data-en="From $200">Desde $200</div>
+            </div>
+            <div class="package-card">
+                <div class="character-icon">🎪</div>
+                <h3 data-es="Paquete Circo" data-en="Circus Package">Paquete Circo</h3>
+                <p data-es="Espectáculo circense con acrobacias, malabares y mucha diversión" data-en="Circus show with acrobatics, juggling and lots of fun">Espectáculo circense con acrobacias, malabares y mucha diversión</p>
+                <div class="price" data-es="Desde $250" data-en="From $250">Desde $250</div>
+            </div>
+            <div class="package-card">
+                <div class="character-icon">✨</div>
+                <h3 data-es="Paquete Magia" data-en="Magic Package">Paquete Magia</h3>
+                <p data-es="Show de magia interactivo que asombrará a grandes y pequeños" data-en="Interactive magic show that will amaze both young and old">Show de magia interactivo que asombrará a grandes y pequeños</p>
+                <div class="price" data-es="Desde $160" data-en="From $160">Desde $160</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="contact">
+        <h2 class="section-title" data-es="¡Contáctanos!" data-en="Contact Us!">¡Contáctanos!</h2>
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+            <input type="text" name="name" placeholder="Nombre / Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="tel" name="phone" placeholder="Teléfono / Phone">
+            <select name="package" required>
+                <option value="" data-es="Selecciona un paquete" data-en="Select a package">Selecciona un paquete</option>
+                <option value="superheroes" data-es="Superhéroes" data-en="Superheroes">Superhéroes</option>
+                <option value="princesas" data-es="Princesas" data-en="Princesses">Princesas</option>
+                <option value="payasos" data-es="Payasos" data-en="Clowns">Payasos</option>
+                <option value="animados" data-es="Personajes Animados" data-en="Animated Characters">Personajes Animados</option>
+                <option value="circo" data-es="Circo" data-en="Circus">Circo</option>
+                <option value="magia" data-es="Magia" data-en="Magic">Magia</option>
+            </select>
+            <textarea name="message" rows="5" placeholder="Cuéntanos sobre tu evento / Tell us about your event" required></textarea>
+            <button type="submit" class="cta-button" data-es="Enviar Solicitud" data-en="Send Request">Enviar Solicitud</button>
+        </form>
+    </section>
+
+    <footer>
+        <p data-es="© 2025 Magic Kids Shows. Haciendo sonreír a los niños desde 2015" data-en="© 2025 Magic Kids Shows. Making children smile since 2015">© 2025 Magic Kids Shows. Haciendo sonreír a los niños desde 2015</p>
+        <p data-es="📞 +1 (555) 123-KIDS | 📧 info@magickidsshows.com" data-en="📞 +1 (555) 123-KIDS | 📧 info@magickidsshows.com">📞 +1 (555) 123-KIDS | 📧 info@magickidsshows.com</p>
+    </footer>
+
+    <script>
+        let currentLang = 'es';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            
+            const elements = document.querySelectorAll('[data-es][data-en]');
+            elements.forEach(element => {
+                if (element.tagName === 'OPTION') {
+                    element.textContent = element.getAttribute(`data-${currentLang}`);
+                } else {
+                    element.textContent = element.getAttribute(`data-${currentLang}`);
+                }
+            });
+
+            // Update placeholder texts
+            const nameInput = document.querySelector('input[name="name"]');
+            const packageSelect = document.querySelector('select[name="package"]');
+            const messageTextarea = document.querySelector('textarea[name="message"]');
+            
+            if (currentLang === 'es') {
+                nameInput.placeholder = "Nombre";
+                messageTextarea.placeholder = "Cuéntanos sobre tu evento";
+            } else {
+                nameInput.placeholder = "Name";
+                messageTextarea.placeholder = "Tell us about your event";
+            }
+
+            // Update document language
+            document.documentElement.lang = currentLang;
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // Simple alert for demo purposes
+            const message = currentLang === 'es' 
+                ? `¡Gracias ${data.name}! Hemos recibido tu solicitud para el paquete ${data.package}. Te contactaremos pronto.`
+                : `Thank you ${data.name}! We have received your request for the ${data.package} package. We will contact you soon.`;
+            
+            alert(message);
+            
+            // Reset form
+            event.target.reset();
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animation for elements
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.value-card, .package-card, .event-card');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        // Initialize elements for animation
+        document.querySelectorAll('.value-card, .package-card, .event-card').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(50px)';
+            element.style.transition = 'all 0.6s ease';
+        });
+
+        // Listen for scroll events
+        window.addEventListener('scroll', animateOnScroll);
+        
+        // Run animation on load
+        window.addEventListener('load', animateOnScroll);
+
+        // Add interactive elements
+        document.querySelectorAll('.package-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px) rotate(1deg)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) rotate(0deg)';
+            });
+        });
+
+        // Add click effect to CTA buttons
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255,255,255,0.5)';
+                ripple.style.pointerEvents = 'none';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 0.6s linear';
+                
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Add ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Dynamic background color change on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const maxScroll = document.body.scrollHeight - window.innerHeight;
+            const scrollPercent = scrolled / maxScroll;
+            
+            const hue = scrollPercent * 360;
+            document.body.style.background = `linear-gradient(135deg, hsl(${hue}, 70%, 95%) 0%, hsl(${hue + 60}, 70%, 95%) 100%)`;
+        });
+
+        // Add floating animation to character icons
+        document.querySelectorAll('.character-icon').forEach((icon, index) => {
+            icon.style.animationDelay = `${index * 0.5}s`;
+        });
+
+        // Mobile menu toggle (for smaller screens)
+        function createMobileMenu() {
+            const nav = document.querySelector('nav');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (window.innerWidth <= 768) {
+                if (!document.querySelector('.mobile-menu-btn')) {
+                    const mobileBtn = document.createElement('button');
+                    mobileBtn.innerHTML = '☰';
+                    mobileBtn.className = 'mobile-menu-btn';
+                    mobileBtn.style.cssText = `
+                        background: none;
+                        border: none;
+                        color: white;
+                        font-size: 2rem;
+                        cursor: pointer;
+                        display: block;
+                    `;
+                    
+                    mobileBtn.addEventListener('click', () => {
+                        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+                        navLinks.style.flexDirection = 'column';
+                        navLinks.style.position = 'absolute';
+                        navLinks.style.top = '100%';
+                        navLinks.style.left = '0';
+                        navLinks.style.width = '100%';
+                        navLinks.style.background = 'rgba(0,0,0,0.9)';
+                        navLinks.style.padding = '1rem';
+                        navLinks.style.borderRadius = '0 0 20px 20px';
+                    });
+                    
+                    nav.appendChild(mobileBtn);
+                }
+            }
+        }
+
+        // Initialize mobile menu
+        createMobileMenu();
+        window.addEventListener('resize', createMobileMenu);
+
+        // Add particle effect on click
+        document.addEventListener('click', (e) => {
+            const particle = document.createElement('div');
+            particle.style.cssText = `
+                position: fixed;
+                width: 10px;
+                height: 10px;
+                background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9999;
+                left: ${e.clientX - 5}px;
+                top: ${e.clientY - 5}px;
+                animation: particle-burst 0.8s ease-out forwards;
+            `;
+            
+            document.body.appendChild(particle);
+            
+            setTimeout(() => particle.remove(), 800);
+        });
+
+        // Add particle burst animation
+        const particleStyle = document.createElement('style');
+        particleStyle.textContent = `
+            @keyframes particle-burst {
+                0% {
+                    transform: scale(0) rotate(0deg);
+                    opacity: 1;
+                }
+                100% {
+                    transform: scale(3) rotate(180deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(particleStyle);
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            observer.observe(section);
+        });
+
+        // Add fadeInUp animation
+        const fadeStyle = document.createElement('style');
+        fadeStyle.textContent = `
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(fadeStyle);
+
+        // Add loading screen
+        window.addEventListener('load', () => {
+            const loader = document.createElement('div');
+            loader.innerHTML = `
+                <div style="
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 10000;
+                    animation: fadeOut 2s 1s forwards;
+                ">
+                    <div style="
+                        font-size: 3rem;
+                        color: white;
+                        animation: bounce 1s infinite;
+                    ">🎪 ✨</div>
+                </div>
+            `;
+            
+            document.body.appendChild(loader);
+            
+            const loaderStyle = document.createElement('style');
+            loaderStyle.textContent = `
+                @keyframes fadeOut {
+                    to {
+                        opacity: 0;
+                        visibility: hidden;
+                    }
+                }
+            `;
+            document.head.appendChild(loaderStyle);
+            
+            setTimeout(() => loader.remove(), 3000);
+        });
+    </script>
+</body>
+</html>
